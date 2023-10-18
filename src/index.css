@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+* {
+  box-sizing: border-box;
+}
 .swiper-button-next,
 .swiper-button-prev {
   color: #8f8f8f !important;
@@ -11,4 +13,11 @@
 
 .swiper-pagination-bullet-active {
   background-color: #ffffff !important;
+}
+
+.box-shadow {
+  box-shadow: 2.2px 1.3px 3.6px -44px rgba(0, 0, 0, 0.035),
+    6.1px 3.5px 9.9px -44px rgba(0, 0, 0, 0.05),
+    14.8px 8.4px 23.8px -44px rgba(0, 0, 0, 0.065),
+    49px 28px 79px -44px rgba(0, 0, 0, 0.1);
 }

@@ -6,8 +6,10 @@ import { toast } from "react-toastify";
 
 import { Home } from "lucide-react";
 
-import conversations from "data/conversations";
 import Conversation from "components/Conversations";
+import listings from "data/listings";
+
+import ListingsTable from "components/ListingsTable";
 
 const Profile = () => {
   const [changeDetails, setChangeDetails] = useState(false);
@@ -45,7 +47,7 @@ const Profile = () => {
         </span>
       </header>
 
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <main className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
         <div className="max-w-[500px]">
           <div className="flex items-center justify-between py-5">
             <p className="text-[#8f8f8f] text-2xl  font-semibold mb-3">
@@ -90,22 +92,9 @@ const Profile = () => {
             </form>
           </div>
         </div>
-        <div>
-          <p className="text-[#8f8f8f] text-2xl  font-semibold mb-3">
-            My listings
-          </p>
-        </div>
 
-        <div>
-          <p className="text-[#8f8f8f] text-2xl  font-semibold mb-3">
-            My Latest Conversations
-          </p>
-          <div className="bg-[#8f8f8f] bg-opacity-5 p-5 rounded-md flex flex-col gap-5">
-            {conversations.map((conversation) => (
-              <Conversation conversation={conversation} key={conversation.id} />
-            ))}
-          </div>
-        </div>
+        <ListingsTable listings={listings} />
+        <Conversation />
       </main>
     </div>
   );

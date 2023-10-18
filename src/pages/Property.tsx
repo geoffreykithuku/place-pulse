@@ -1,20 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { ShowerHead, Bed, Users } from "lucide-react";
 
-import { Bed, Users, ShowerHead } from "lucide-react";
-
-const ListingItem = ({ listing }) => {
+const Property = () => {
+  const listing = {
+    id: 2,
+    name: "Spacious House near Campus",
+    location: "456 University Avenue",
+    type: "rental",
+    bedrooms: 3,
+    bathrooms: 2,
+    regularPrice: 15000,
+    offer: true,
+    discountedPrice: 13000,
+    people: 0,
+    img: "https://images.pexels.com/photos/4049990/pexels-photo-4049990.jpeg?auto=compress&cs=tinysrgb&w=1400",
+  };
   return (
-    <li className="">
-      <Link
-        className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-fit border z-20 shadow-sm rounded-md box-shadow"
-        to={`/house/${listing.id}`}
-      >
-        <div className="h-full max-w-[300px] w-full">
+    <div className="pt-10 px-5 sm:px-10 md:px-20">
+      <header>
+        <p className="font-bold text-4xl text-[#8f8f8f] mb-10">
+          House House House
+        </p>
+      </header>
+
+      <div className="flex gap-5">
+        <div className="w-[474px] h-[476px]">
           <img
-            className="w-full h-full  object-cover rounded-md"
-            src={listing.img}
-            alt={listing.name}
+            src="https://media.istockphoto.com/id/1436217023/photo/exterior-of-a-blue-suburban-home.webp?b=1&s=170667a&w=0&k=20&c=oEpszLJm7Hk3Q7qshJvde1P6tfaW5EJsmsYzOuuHGR8="
+            alt="house"
+            className="w-full  object-cover rounded-md"
           />
         </div>
         <div className="flex flex-col gap-5 text-[#8f8f8f] p-3 ">
@@ -54,10 +68,15 @@ const ListingItem = ({ listing }) => {
               </p>
             </div>
           )}
+          <div>
+            <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4">
+              Contact Caretaker
+            </button>
+          </div>
         </div>
-      </Link>
-    </li>
+      </div>
+    </div>
   );
 };
 
-export default ListingItem;
+export default Property;

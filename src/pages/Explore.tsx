@@ -48,7 +48,7 @@ const Explore = () => {
                   <img
                     src={listing.img}
                     alt={listing.name}
-                    className="rounded-xl w-full object-cover mx-auto h-full min-h-[200px]"
+                    className="rounded-xl w-full object-cover mx-auto h-full min-h-[200px] object-bottom"
                   />
                   <div className="absolute left-5 top-5 flex flex-row gap-5 flex-wrap">
                     {listing.offer ? (
@@ -74,7 +74,7 @@ const Explore = () => {
         </Swiper>
 
         <h3 className="text-[#8f8f8f] text-2xl  font-semibold mb-3">
-          Categories
+          Our Categories
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10  mb-10">
           <div className=" mx-auto w-full h-[200px] mb-10">
@@ -110,7 +110,6 @@ const Explore = () => {
           {/*google map */}
 
           <PlaceMap />
-     
         </div>
       </main>
     </div>

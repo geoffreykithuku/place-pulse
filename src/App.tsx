@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Offers from "./pages/Offers";
 import Profile from "./pages/Profile";
 import Category from "./pages/Category";
+import Property from "pages/Property";
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
        
          */}
         <Route path="/category/:categoryName" element={<Category />} />
+        <Route path="/house/:id" element={<Property />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create" element={<CreateListing />} />
         <Route path="/offers" element={<Offers />} />

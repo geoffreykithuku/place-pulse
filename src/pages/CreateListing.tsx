@@ -3,9 +3,24 @@ import React, { useState } from "react";
 
 const CreateListing = () => {
   const [popup, setPopup] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    address: "",
+    type: "",
+    bedrooms: 0,
+    bathrooms: 0,
+    price: 0,
+    offer: false,
+    people: 0,
+    image: "",
+  });
 
   const onClose = (e) => {
     e.preventDefault();
+    setPopup(!popup);
+  };
+  const handlePick = (address) => {
+    console.log(address);
     setPopup(!popup);
   };
 
@@ -37,7 +52,7 @@ const CreateListing = () => {
           <button className="text-[#d85555] font-semibold " onClick={onClose}>
             Check available addresses
           </button>
-          {popup && <AddressPicker onClose={onClose} />}
+          {popup && <AddressPicker onClose={onClose} onPick={handlePick} />}
         </div>
         <div className="flex justify-start items-center gap-10">
           <div className="flex gap-5 items-center justify-center">

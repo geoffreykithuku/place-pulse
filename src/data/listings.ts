@@ -9,7 +9,7 @@ const listings = [
     regularPrice: 8000,
     offer: false,
     people: 0,
-    img: "https://images.pexels.com/photos/4907430/pexels-photo-4907430.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://images.pexels.com/photos/4907430/pexels-photo-4907430.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const listings = [
     offer: true,
     discountedPrice: 13000,
     people: 0,
-    img: "https://images.pexels.com/photos/4049990/pexels-photo-4049990.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://images.pexels.com/photos/4049990/pexels-photo-4049990.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const listings = [
     regularPrice: 5000,
     offer: false,
     people: 4,
-    img: "https://images.pexels.com/photos/4050294/pexels-photo-4050294.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://images.pexels.com/photos/4050294/pexels-photo-4050294.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const listings = [
     offer: true,
     discountedPrice: 9000,
     people: 0,
-    img: "https://images.pexels.com/photos/4050317/pexels-photo-4050317.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://images.pexels.com/photos/4050317/pexels-photo-4050317.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ const listings = [
     offer: true,
     discountedPrice: 4000,
     people: 4,
-    img: "https://images.pexels.com/photos/6084302/pexels-photo-6084302.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://images.pexels.com/photos/6084302/pexels-photo-6084302.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
 ];
 

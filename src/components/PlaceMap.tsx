@@ -78,7 +78,7 @@ const PlaceMap = () => {
       <MapContainer
         center={center}
         zoom={7}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
         className="w-full h-[450px]"
       >
         <TileLayer
