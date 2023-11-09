@@ -1,5 +1,5 @@
 import React from "react";
-import { ShowerHead, Bed, Users } from "lucide-react";
+import { ShowerHead, Bed, Users, Star } from "lucide-react";
 
 const Property = () => {
   const listing = {
@@ -23,8 +23,8 @@ const Property = () => {
         </p>
       </header>
 
-      <div className="flex gap-5">
-        <div className="w-[474px] h-[476px]">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="max-w-[474px] max-h-[476px] w-full">
           <img
             src="https://media.istockphoto.com/id/1436217023/photo/exterior-of-a-blue-suburban-home.webp?b=1&s=170667a&w=0&k=20&c=oEpszLJm7Hk3Q7qshJvde1P6tfaW5EJsmsYzOuuHGR8="
             alt="house"
@@ -68,11 +68,34 @@ const Property = () => {
               </p>
             </div>
           )}
-          <div>
+          <div className="flex gap-5">
+            <Star color="#eeff00" strokeWidth={3} />
+            <Star color="#eeff00" strokeWidth={3} />
+            <Star color="#eeff00" strokeWidth={3} />
+            <Star color="#eeff00" strokeWidth={3} />
+            <Star color="#eeff00" strokeWidth={3} />
+          </div>
+          <div className="flex gap-5 flex-wrap">
             <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4">
               Contact Caretaker
             </button>
+            <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4">
+              Leave a review
+            </button>
           </div>
+        </div>
+      </div>
+      <div>
+        <h2 className="text-[#8f8f8f] text-2xl  font-semibold mt-20">
+          What Our Clients Say
+        </h2>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+            molestias sint, in quidem officiis expedita inventore asperiores?
+            Natus eligendi earum porro praesentium, odit ipsa. Necessitatibus
+            totam veniam recusandae dolor odit?
+          </p>
         </div>
       </div>
     </div>

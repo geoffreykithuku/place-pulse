@@ -25,27 +25,26 @@ const ForgotPassword = () => {
       <main className="">
         <form
           onSubmit={onSubmit}
-          className="flex flex-col gap-5 mb-20 max-w-[500px] "
+          className="lex flex-col gap-5 mb-20 w-full p-5 shadow items-start justify-center sm:w-[80%] mx-auto max-w-[400px]"
         >
           <input
             type="email"
-            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            className="px-5 py-2 rounded-md outline-none  border border-solid border-[#8f8f8f] w-full mt-5"
             placeholder="Email"
             id="email"
             value={email}
             onChange={onChange}
           />
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between my-5">
             <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold">
               Send reset link
             </button>
             <Link className="text-[#d85555] font-semibold" to="/login">
-             Back to Login
+              Back to Login
             </Link>
           </div>
         </form>
-      
       </main>
     </div>
   );

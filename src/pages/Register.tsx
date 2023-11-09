@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { EyeOff, Eye } from "lucide-react";
+import OAuth from "components/OAuth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,61 +37,65 @@ const Register = () => {
           Welcome to place-pulse
         </p>
       </header>
-      <form
-        onSubmit={onSubmit}
-        className="flex flex-col gap-5 mb-20 max-w-[500px]  "
-      >
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          id="name"
-          className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          id="email"
-          className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
-          onChange={handleChange}
-        />
-
-        <div className="relative">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col gap-5 mb-20 w-full p-5 shadow items-start justify-center sm:w-[80%] mx-auto   "
+        >
           <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            value={password}
-            onChange={handleChange}
+            type="text"
+            placeholder="Name"
+            value={name}
+            id="name"
             className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
-            id="password"
+            onChange={handleChange}
           />
-          {showPassword ? (
-            <EyeOff
-              color="#8f8f8f"
-              className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
-              onClick={() => setShowPassword(!showPassword)}
-            />
-          ) : (
-            <Eye
-              color="#8f8f8f"
-              className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
-              onClick={() => setShowPassword(!showPassword)}
-            />
-          )}
-        </div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            id="email"
+            className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+            onChange={handleChange}
+          />
 
-        <div className="w-full flex justify-between items-center">
-          <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold">
-            Sign Up
-          </button>
-          <Link to="/login" className="text-[#d85555] font-semibold self-end">
-            Login Instead
-          </Link>
+          <div className="relative w-full">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+              className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+              id="password"
+            />
+            {showPassword ? (
+              <EyeOff
+                color="#8f8f8f"
+                className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <Eye
+                color="#8f8f8f"
+                className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
+          </div>
+
+          <div className="w-full flex justify-between items-center">
+            <button className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold">
+              Sign Up
+            </button>
+            <Link to="/login" className="text-[#d85555] font-semibold self-end">
+              Login Instead
+            </Link>
+          </div>
+        </form>
+        <div className="flex justify-center items-start">
+          <OAuth />
         </div>
-      </form>
-      {/* google auth */}
+      </div>
     </div>
   );
 };
