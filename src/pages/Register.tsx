@@ -15,8 +15,9 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    password_confirmation: "",
   });
-  const { name, email, password } = formData;
+  const { name, email, password, password_confirmation } = formData;
 
   const navigate = useNavigate();
 
@@ -67,6 +68,30 @@ const Register = () => {
               onChange={handleChange}
               className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
               id="password"
+            />
+            {showPassword ? (
+              <EyeOff
+                color="#8f8f8f"
+                className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <Eye
+                color="#8f8f8f"
+                className="text-[#8f8f8f] w-6 h-6 cursor-pointer absolute right-[2%] bottom-[16%]"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
+          </div>
+
+          <div className="relative w-full">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password_confirmation}
+              onChange={handleChange}
+              className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
+              id="password_confirmation"
             />
             {showPassword ? (
               <EyeOff

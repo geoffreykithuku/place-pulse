@@ -14,7 +14,7 @@ const location = useLocation()
         Sign {location.pathname === "/login" ? "In" : "Up"} with{" "}
       </p>
 
-      <div className="border cursor-pointer w-[80%] md:w-[50%] rounded mx-auto mt-3">
+      <div className="border cursor-pointer w-[80%] md:w-[50%] rounded mx-auto mt-3 hover:bg-[#f8f8f8]">
         <img
           src={googleIcon}
           alt=""
@@ -22,7 +22,7 @@ const location = useLocation()
         />
       </div>
 
-      <div className="border cursor-pointer  w-[80%] md:w-[50%] rounded mx-auto my-3">
+      <div className="border cursor-pointer  w-[80%] md:w-[50%] rounded mx-auto my-3 hover:bg-[#f8f8f8]">
         <img src={facebook} alt="" className="w-[30px] h-[30px] mx-auto my-3" />
       </div>
     </div>
