@@ -12,12 +12,12 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     password_confirmation: "",
   });
-  const { name, email, password, password_confirmation } = formData;
+  const { username, email, password, password_confirmation } = formData;
 
   const navigate = useNavigate();
 
@@ -29,6 +29,31 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (password !== password_confirmation) {
+      toast("Passwords do not match");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+      
+      if (res.ok) {
+        toast("Account created successfully");
+        navigate("/login");
+      } else {
+        const data = await res.json();
+        toast(data.message);
+      }
+
+    } catch (error) {
+      toast(error.response.data.message);
+    }
   };
 
   return (
@@ -45,9 +70,9 @@ const Register = () => {
         >
           <input
             type="text"
-            placeholder="Name"
-            value={name}
-            id="name"
+            placeholder="Username"
+            value={username}
+            id="username"
             className="px-5 py-2 rounded-md outline-none border border-solid border-[#8f8f8f] w-full"
             onChange={handleChange}
           />
