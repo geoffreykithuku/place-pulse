@@ -3,11 +3,20 @@ import { toast } from "react-toastify";
 import { EyeOff, Eye } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+// import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+
 import OAuth from "components/OAuth";
-
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from "../redux/user/userSlice.js";
 const Login = () => {
+  const dispatch = useDispatch();
+  const {loading, error} = useSelector(state => state.user)
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -24,6 +33,30 @@ const Login = () => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      dispatch(signInStart);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (res.ok) {
+        toast("Signed in successfully");
+        const data = await res.json();
+        dispatch(signInSuccess(data));
+        navigate("/profile");
+      } else {
+        const data = await res.json();
+        dispatch(signInFailure(data.message));
+        toast(data.message);
+      }
+    } catch (error) {
+      dispatch(signInFailure(error.message));
+      toast("Something went wrong");
+    }
   };
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
