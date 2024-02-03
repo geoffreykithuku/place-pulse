@@ -12,6 +12,7 @@ import {signInSuccess} from "../redux/user/userSlice";
 const OAuth = () => {
   const location = useLocation()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   
   const handleGoogle = async() => {
     try { 
@@ -31,6 +32,7 @@ const OAuth = () => {
       });
       const data = await res.json();
       dispatch(signInSuccess(data));
+      navigate('/')
 
     } catch (e) {
       toast.error("An error occurred. Please try again later");
