@@ -8,10 +8,15 @@ import { Home } from "lucide-react";
 
 import Conversation from "components/Conversations";
 import listings from "data/listings";
+import { useSelector } from "react-redux";
 
 import ListingsTable from "components/ListingsTable";
 
 const Profile = () => {
+  const { currentUser } = useSelector((state) => state.user.user);
+
+
+
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -44,6 +49,16 @@ const Profile = () => {
           >
             Log out
           </button>
+          {currentUser && 
+            <span className="flex items-center gap-3">
+              <img
+                src={currentUser.photo}
+                alt="profile"
+                className="w-10 h-10 rounded-full"
+              />
+              <span>{currentUser.username}</span>
+          </span>
+          }
         </span>
       </header>
 

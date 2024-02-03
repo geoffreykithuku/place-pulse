@@ -56,12 +56,13 @@ export const login = async (req, res, next) => {
 
 export const google = async (req, res, next) => {
   try {
-    const user = User.findOne({ email: req.body.email });
+    // Use findOne() with await to wait for the result
+    const user = await User.findOne({ email: req.body.email });
 
     // if user exists, create token and cookie
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      const { password: pass, ...rest } = user._doc;
+      const { password, ...rest } = user._doc || {}; // Ensure _doc is defined
       res.cookie("token", token, { httpOnly: true }).status(200).json(rest);
     } else {
       // if user does not exist, create user and token
@@ -70,13 +71,13 @@ export const google = async (req, res, next) => {
       const hashedPassword = await bcryptjs.hashSync(generatedPassword, 10);
       const newUser = await User.create({
         username:
-          req.body.name.split(" ").join("").toLowerCase() +
+          req.body.username.split(" ").join("").toLowerCase() +
           Math.floor(Math.random() * 1000),
         email: req.body.email,
         password: hashedPassword,
       });
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
-      const { password: pass, ...rest } = newUser._doc;
+      const { password, ...rest } = newUser._doc || {}; // Ensure _doc is defined
       res.cookie("token", token, { httpOnly: true }).status(200).json(rest);
     }
   } catch (err) {
