@@ -84,3 +84,18 @@ export const google = async (req, res, next) => {
     next(err);
   }
 };
+
+export const update = async (req, res, next) => {
+  try {
+    const { id, username, email, photo } = req.body;
+    const updated = await User.findByIdAndUpdate(
+      id,
+      { username, email, photo },
+      { new: true }
+    );
+    res.status(200).json(updated);
+  }
+  catch (err) {
+    next(err);
+  }
+}

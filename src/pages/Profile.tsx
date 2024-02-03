@@ -15,20 +15,38 @@ import ListingsTable from "components/ListingsTable";
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user.user);
 
-
-
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    username: currentUser.username,
+    email: currentUser.email,
   });
   const navigate = useNavigate();
-  const { name, email } = formData;
+  const { username, email } = formData;
+
   function onLogout() {}
-  function onChange(e) {
+
+  const onChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+  async function onSubmit() {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/update`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email }),
+      });
+      if (res.ok) {
+        toast("Details updated successfully");
+      } else {
+        const data = await res.json();
+        toast(data.message);
+      }
+    } catch (error) {
+      toast("Something went wrong");
+    }
   }
-  async function onSubmit() {}
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
       <header className="flex items-center justify-between flex-wrap">
@@ -49,7 +67,7 @@ const Profile = () => {
           >
             Log out
           </button>
-          {currentUser && 
+          {currentUser && (
             <span className="flex  gap-3 bg-[#8f8f8f] px-5 py-2 rounded text-white items-center">
               <img
                 src={currentUser.photo}
@@ -57,8 +75,8 @@ const Profile = () => {
                 className="w-10 h-10 rounded-full object-cover"
               />
               <span>{currentUser.username}</span>
-          </span>
-          }
+            </span>
+          )}
         </span>
       </header>
 
@@ -82,10 +100,10 @@ const Profile = () => {
             <form className="flex flex-col gap-5 mb-20 max-w-[500px]">
               <input
                 disabled={!changeDetails}
-                value={name}
+                value={username}
                 onChange={onChange}
                 type="text"
-                id="name"
+                id="username"
                 className={
                   !changeDetails
                     ? "profileName"
