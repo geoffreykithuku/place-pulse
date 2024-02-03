@@ -37,7 +37,7 @@ const Profile = () => {
         <span className="flex flex-wrap gap-5">
           <Link
             to="/create"
-            className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4"
+            className="text-white bg-[#8f8f8f] px-5 py-2 rounded font-semibold flex gap-4 items-center"
           >
             <Home color="#fff" />
             <p>Create a listing</p>
@@ -50,11 +50,11 @@ const Profile = () => {
             Log out
           </button>
           {currentUser && 
-            <span className="flex items-center gap-3">
+            <span className="flex  gap-3 bg-[#8f8f8f] px-5 py-2 rounded text-white items-center">
               <img
                 src={currentUser.photo}
                 alt="profile"
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 rounded-full object-cover"
               />
               <span>{currentUser.username}</span>
           </span>

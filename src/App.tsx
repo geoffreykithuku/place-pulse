@@ -13,25 +13,21 @@ import Offers from "./pages/Offers";
 import Profile from "./pages/Profile";
 import Category from "./pages/Category";
 import Property from "pages/Property";
+import PrivateRoute from "components/PrivateRoute";
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Explore />} />
-        {/* 
-        
 
-        <Route path="/profile" element={<PrivateRoute />}>
-          
+        <Route element={<PrivateRoute />}>
+          <Route path="/profile" element={<Profile />} />
         </Route>
-       
-        
-       
-         */}
+
         <Route path="/category/:categoryName" element={<Category />} />
         <Route path="/house/:id" element={<Property />} />
-        <Route path="/profile" element={<Profile />} />
+
         <Route path="/create" element={<CreateListing />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/login" element={<Login />} />
