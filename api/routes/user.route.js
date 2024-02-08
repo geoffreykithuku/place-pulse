@@ -1,5 +1,5 @@
 import { test, update } from "../controllers/user.controller.js";
-import { verifyUserToken } from "../utils/verifyUser.js";
+import verifyUserToken  from "../utils/verifyUser.js";
 
 import express from "express";
 

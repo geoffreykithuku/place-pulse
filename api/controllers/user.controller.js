@@ -1,4 +1,4 @@
-import User from "../models/user";
+import User from "../models/user.js";
 
 export const test = (req, res) => {
   res.json({ message: "hello, world" });

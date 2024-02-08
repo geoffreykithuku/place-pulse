@@ -30,7 +30,7 @@ const Profile = () => {
   };
   async function onSubmit() {
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/update`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/user/update/${currentUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
