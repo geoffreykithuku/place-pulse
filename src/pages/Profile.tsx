@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Spinner from "../components/Spinner";
 import { useNavigate, Link } from "react-router-dom";
 
 import { toast } from "react-toastify";
@@ -11,10 +11,16 @@ import listings from "data/listings";
 import { useSelector } from "react-redux";
 
 import ListingsTable from "components/ListingsTable";
-
+import { useDispatch } from "react-redux";
+import {
+  userUpdateStart,
+  userUpdate
+} from "../redux/user/userSlice.js";
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
 
+  const { loading } = useSelector((state) => state.user);
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
     username: currentUser.username,
@@ -29,16 +35,21 @@ const Profile = () => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
   async function onSubmit() {
+    dispatch(userUpdateStart());
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/user/update/${currentUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: 'include',
         body: JSON.stringify({ username, email }),
       });
       if (res.ok) {
         toast("Details updated successfully");
+        const data = await res.json();
+        dispatch(userUpdate(data));
+      
       } else {
         const data = await res.json();
         toast(data.message);
@@ -46,6 +57,10 @@ const Profile = () => {
     } catch (error) {
       toast("Something went wrong");
     }
+  }
+
+  if (loading) {
+    return <Spinner />;
   }
   return (
     <div className="pt-10 px-5 sm:px-10 md:px-20">
