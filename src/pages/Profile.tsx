@@ -12,10 +12,7 @@ import { useSelector } from "react-redux";
 
 import ListingsTable from "components/ListingsTable";
 import { useDispatch } from "react-redux";
-import {
-  userUpdateStart,
-  userUpdate
-} from "../redux/user/userSlice.js";
+import { userUpdateStart, userUpdate } from "../redux/user/userSlice.js";
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
@@ -37,19 +34,21 @@ const Profile = () => {
   async function onSubmit() {
     dispatch(userUpdateStart());
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/user/update/${currentUser._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: 'include',
-        body: JSON.stringify({ username, email }),
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}/user/update/${currentUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ username, email }),
+        }
+      );
       if (res.ok) {
         toast("Details updated successfully");
         const data = await res.json();
         dispatch(userUpdate(data));
-      
       } else {
         const data = await res.json();
         toast(data.message);
@@ -58,6 +57,41 @@ const Profile = () => {
       toast("Something went wrong");
     }
   }
+
+  const confirmDelete = async () => {
+    if (window.confirm("Are you sure you want to delete your account?")) {
+      return true;
+    }
+    return false;
+  };
+
+  
+  const deleteAccount = async () => {
+    if (!confirmDelete()) {
+      return;
+    }
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}/user/delete/${currentUser._id}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.ok) {
+        toast("Account deleted successfully");
+        navigate("/login");
+      } else {
+        const data = await res.json();
+        toast(data.message);
+      }
+    } catch (error) {
+      toast("Something went wrong");
+    }
+  };
 
   if (loading) {
     return <Spinner />;
@@ -102,13 +136,19 @@ const Profile = () => {
               Personal Details
             </p>
             <p
+              onClick={deleteAccount}
+              className="text-[#d85555] font-semibold self-end cursor-pointer underline"
+            >
+              Delete account
+            </p>
+            <p
               className="text-[#d85555] font-semibold self-end cursor-pointer underline"
               onClick={() => {
                 changeDetails && onSubmit();
                 setChangeDetails((prev) => !prev);
               }}
             >
-              {changeDetails ? "done" : "change"}
+              {changeDetails ? "Done" : "Update"}
             </p>
           </div>
           <div className="">
