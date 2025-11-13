@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Button from '../src/components/ui/Button';
-import HunterCTA from '../src/components/ui/HunterCTA';
+import Link from "next/link";
+import Button from "../../src/components/ui/Button";
+import HunterCTA from "../../src/components/ui/HunterCTA";
 
 export default function ForHuntersPage() {
   return (
@@ -11,16 +11,15 @@ export default function ForHuntersPage() {
         Turn Your Local Knowledge Into Income
       </h1>
       <p className="text-neutral-600 mb-6">
-        You know your neighborhood better than anyone. Help house seekers
-        while earning extra income as a verified house hunter.
+        You know your neighborhood better than anyone. Help house seekers while earning extra income
+        as a verified house hunter.
       </p>
 
       <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-200 mb-8">
         <h2 className="text-xl font-semibold mb-4">Earning Potential</h2>
         <ul className="space-y-2 text-neutral-600">
           <li>
-            <strong>Per Viewing:</strong> KSh 500-1,500 depending on house
-            price
+            <strong>Per Viewing:</strong> KSh 500-1,500 depending on house price
           </li>
           <li>
             <strong>Bonus:</strong> Extra KSh 500 when renter takes the house
@@ -46,25 +45,19 @@ export default function ForHuntersPage() {
       </div>
 
       <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-200 mb-8">
-        <h2 className="text-xl font-semibold mb-4">
-          How It Works for Hunters
-        </h2>
+        <h2 className="text-xl font-semibold mb-4">How It Works for Hunters</h2>
         <ol className="list-decimal pl-6 text-neutral-600 space-y-2">
           <li>
-            <strong>Get Verified</strong> - Submit ID, references, pass
-            background check
+            <strong>Get Verified</strong> - Submit ID, references, pass background check
           </li>
           <li>
-            <strong>List Houses</strong> - Add vacant properties with photos
-            and details
+            <strong>List Houses</strong> - Add vacant properties with photos and details
           </li>
           <li>
-            <strong>Receive Bookings</strong> - Get notifications when renters
-            want viewings
+            <strong>Receive Bookings</strong> - Get notifications when renters want viewings
           </li>
           <li>
-            <strong>Conduct Tours</strong> - Meet renters, show houses
-            professionally
+            <strong>Conduct Tours</strong> - Meet renters, show houses professionally
           </li>
           <li>
             <strong>Get Paid</strong> - Earn money directly to your M-Pesa

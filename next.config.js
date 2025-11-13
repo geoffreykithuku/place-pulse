@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
 
 const nextConfig = {
   experimental: {
-    typedRoutes: true,
+    typedRoutes: false,
   },
   images: {
-    domains: ['localhost', 'spotacrib.co.ke', 'images.unsplash.com'],
-    formats: ['image/webp', 'image/avif'],
+    domains: ["localhost", "spotacrib.co.ke", "images.unsplash.com"],
+    formats: ["image/webp", "image/avif"],
   },
   compress: true,
   poweredByHeader: false,
@@ -18,20 +18,20 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          }
+            key: "Referrer-Policy",
+            value: "origin-when-cross-origin",
+          },
         ],
       },
     ];
@@ -39,8 +39,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/hunters',
-        destination: '/for-hunters',
+        source: "/hunters",
+        destination: "/for-hunters",
         permanent: true,
       },
     ];

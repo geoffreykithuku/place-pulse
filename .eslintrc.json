@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "extends": ["next/core-web-vitals", "prettier"],
   "env": {
     "browser": true,
     "es2021": true,
@@ -14,14 +14,6 @@
     }
   },
   "rules": {
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }
-    ],
     "no-console": [
       "warn",
       {
@@ -29,25 +21,11 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "react/no-children-prop": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@next/next/no-html-link-for-pages": "off",
-    "sort-imports": [
-      "warn",
-      {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true
-      }
-    ],
-    "@typescript-eslint/explicit-function-return-types": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-floating-promises": "error",
     "prefer-const": "warn",
     "no-var": "error",
-    "eqeqeq": ["error", "always"],
-    "curly": "warn"
+    "eqeqeq": ["error", "always"]
   },
   "settings": {
     "react": {
