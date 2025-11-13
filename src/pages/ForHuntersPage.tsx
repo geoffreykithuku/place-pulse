@@ -1,17 +1,10 @@
-import { Link } from "react-router-dom";
-import { SEOHead } from "../hooks/useSEO";
+import Link from "next/link";
 import Button from "../components/ui/Button";
 import HunterCTA from "../components/ui/HunterCTA";
 
 const ForHuntersPage = () => {
   return (
     <div>
-      <SEOHead
-        title="For House Hunters"
-        description="Turn your local knowledge into income. Apply to become a verified house hunter and earn per viewing."
-        keywords={["house hunter Kenya", "become a house hunter", "earn KSh"]}
-      />
-
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
         <h1 className="text-3xl font-display font-bold mb-4">
           Turn Your Local Knowledge Into Income
@@ -79,7 +72,7 @@ const ForHuntersPage = () => {
         </div>
 
         <div className="text-center mb-12">
-          <Link to="/hunter-signup">
+          <Link href="/hunter-signup">
             <Button variant="gradient" size="xl" modern glow className="px-12">
               Apply to Become a Hunter
             </Button>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Search, MapPin, Star, Shield, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
@@ -154,12 +154,12 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 1 }}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
-              <Link to="/browse">
+              <Link href="/browse">
                 <Button variant="primary" size="lg" modern glow className="sm:w-auto">
                   Browse Available Houses
                 </Button>
               </Link>
-              <Link to="/hunter-signup">
+              <Link href="/hunter-signup">
                 <Button variant="glass" size="lg" className="sm:w-auto">
                   Become a House Hunter
                 </Button>

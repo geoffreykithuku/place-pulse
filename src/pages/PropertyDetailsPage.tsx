@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   ArrowLeft,
@@ -16,7 +16,6 @@ import {
   ChevronRight,
   Share2,
 } from "lucide-react";
-import { SEOHead } from "../hooks/useSEO";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import BookingModal from "../components/ui/BookingModal";
@@ -25,7 +24,7 @@ import { mockProperties } from "../data/mockData";
 
 const PropertyDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorited, setIsFavorited] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -44,7 +43,7 @@ const PropertyDetailsPage = () => {
           <p className="text-neutral-600 mb-6">
             The property you're looking for doesn't exist.
           </p>
-          <Button onClick={() => navigate("/browse")}>Back to Browse</Button>
+          <Button onClick={() => router.push("/browse")}>Back to Browse</Button>
         </div>
       </div>
     );
@@ -102,7 +101,7 @@ const PropertyDetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => router.back()}
             className="flex items-center space-x-2 text-safari-600 hover:text-safari-700 mb-6 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />

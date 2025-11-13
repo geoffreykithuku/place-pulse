@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Star, Shield, TrendingUp, Users } from 'lucide-react';
 import Button from './Button';
@@ -22,7 +22,7 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
             <h3 className="text-xl font-bold mb-2">Earn as a House Hunter</h3>
             <p className="text-safari-100">KSh 2,000 - 15,000 per successful match</p>
           </div>
-          <Link to="/hunter-signup">
+          <Link href="/hunter-signup">
             <Button variant="glass" size="lg" className="whitespace-nowrap">
               Join Now
             </Button>
@@ -59,12 +59,12 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Link to="/hunter-signup">
+            <Link href="/hunter-signup">
               <Button variant="glass" size="xl" modern className="px-8">
                 Start Your Application
               </Button>
             </Link>
-            <Link to="/for-hunters">
+            <Link href="/for-hunters">
               <Button variant="outline" size="xl" className="px-8 border-white/30 text-white hover:bg-white/10">
                 Learn More
               </Button>
@@ -146,12 +146,12 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
       </div>
 
       <div className="text-center">
-        <Link to="/hunter-signup">
+        <Link href="/hunter-signup">
           <Button variant="gradient" size="xl" modern glow className="px-12 mr-4">
             Start Your Application
           </Button>
         </Link>
-        <Link to="/for-hunters">
+        <Link href="/for-hunters">
           <Button variant="outline" size="xl" className="px-8">
             Learn More
           </Button>

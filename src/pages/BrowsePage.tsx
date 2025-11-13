@@ -1,6 +1,6 @@
 import { SEOHead } from "../hooks/useSEO";
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Search, SlidersHorizontal } from "lucide-react";
 import Button from "../components/ui/Button";
 import PropertyCard from "../components/ui/PropertyCard";
@@ -10,7 +10,7 @@ import ShareModal from "../components/ui/ShareModal";
 import { mockProperties, kenyanAreas, propertyTypes } from "../data/mockData";
 
 const BrowsePage = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -86,7 +86,7 @@ const BrowsePage = () => {
   };
 
   const handleViewProperty = (id: string) => {
-    navigate(`/property/${id}`);
+    router.push(`/property/${id}`);
   };
 
   const handleBookViewing = (id: string) => {

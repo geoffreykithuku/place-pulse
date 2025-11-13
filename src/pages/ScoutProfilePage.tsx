@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   Star,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { mockScouts } from "../data/mockData";
 import Card from "../components/ui/Card";
 import { Star, MapPin } from "lucide-react";
@@ -21,7 +21,7 @@ const ScoutDirectory: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mockScouts.map((scout) => (
-            <Link key={scout.id} to={`/scout/${scout.id}`}>
+            <Link key={scout.id} href={`/scout/${scout.id}`}>
               <Card hover className="text-center p-6">
                 <div className="w-20 h-20 bg-safari-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-safari-800">
                   {scout.name

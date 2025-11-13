@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Facebook,
   Twitter,
@@ -65,7 +65,7 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <Link
-                to="/"
+                href="/"
                 className="flex items-center space-x-2 text-xl font-display font-bold text-white mb-4"
               >
                 <img
@@ -104,7 +104,7 @@ const Footer = () => {
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-neutral-400 hover:text-white transition-colors"
                     >
                       {link.name}
@@ -121,7 +121,7 @@ const Footer = () => {
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-neutral-400 hover:text-white transition-colors"
                     >
                       {link.name}
@@ -138,7 +138,7 @@ const Footer = () => {
                 {footerLinks.support.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-neutral-400 hover:text-white transition-colors"
                     >
                       {link.name}
@@ -155,7 +155,7 @@ const Footer = () => {
                 {footerLinks.legal.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-neutral-400 hover:text-white transition-colors"
                     >
                       {link.name}

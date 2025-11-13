@@ -1,6 +1,8 @@
+"use client";
+
 import { Heart, MapPin, Eye, Calendar, Shield, Share2 } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import Button from "./Button";
 import Card from "./Card";
 import type { Property } from "../../data/mockData";
@@ -35,13 +37,13 @@ const PropertyCard = (props: PropertyCardProps) => {
     layout = "grid",
   } = props;
 
-  const navigate = useNavigate();
+  const router = useRouter();
   const [isFavorited, setIsFavorited] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleScoutClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate(`/scout/${scoutId}`);
+    router.push(`/hunter/${scoutId}`);
   };
 
   const handleBooking = () => {

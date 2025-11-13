@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, Users, Clock, Shield } from "lucide-react";
 import Button from "../ui/Button";
@@ -161,7 +161,7 @@ const CTASection = () => {
               </div>
             </div>
 
-            <Link to="/hunter-signup">
+            <Link href="/hunter-signup">
               <Button
                 variant="safari"
                 size="lg"

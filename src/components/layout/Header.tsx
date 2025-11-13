@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Menu, X, Search, Heart } from "lucide-react";
 import { clsx } from "clsx";
 import Button from "../ui/Button";
@@ -17,7 +18,7 @@ const navigation = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +42,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
-            to="/"
+            href="/"
             className="flex items-center space-x-2 text-xl font-display font-bold text-safari-600"
           >
             <img src="/logo.svg" alt="Spot A Crib" className="w-8 h-8" />
@@ -53,10 +54,10 @@ const Header = () => {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={clsx(
                   "text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-md",
-                  location.pathname === item.href
+                  router.pathname === item.href
                     ? "text-safari-600 bg-safari-50"
                     : "text-neutral-700 hover:text-safari-600 hover:bg-neutral-50"
                 )}
@@ -74,7 +75,7 @@ const Header = () => {
             <button className="p-2 text-neutral-700 hover:text-safari-600 transition-colors">
               <Heart className="w-5 h-5" />
             </button>
-            <Link to="/hunter-signup">
+            <Link href="/hunter-signup">
               <Button size="sm">Get Started</Button>
             </Link>
           </div>
@@ -99,10 +100,10 @@ const Header = () => {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={clsx(
                     "block text-base font-medium transition-colors px-3 py-2 rounded-md",
-                    location.pathname === item.href
+                    router.pathname === item.href
                       ? "text-safari-600 bg-safari-50"
                       : "text-neutral-700 hover:text-safari-600 hover:bg-neutral-50"
                   )}
@@ -112,7 +113,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 border-t border-neutral-200">
-                <Link to="/hunter-signup" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/hunter-signup" onClick={() => setIsMenuOpen(false)}>
                   <Button fullWidth>Get Started</Button>
                 </Link>
               </div>
