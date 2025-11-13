@@ -31,17 +31,20 @@ A modern web platform connecting Kenyan renters with verified local house hunter
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/geoffreykithuku/place-pulse.git
 cd place-pulse
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -65,11 +68,13 @@ npm run preview
 ### Unit Tests
 
 Run Vitest for unit tests:
+
 ```bash
 npm run test
 ```
 
 Run tests with UI:
+
 ```bash
 npm run test:ui
 ```
@@ -81,21 +86,25 @@ This project uses Cypress for comprehensive E2E testing. The test suite covers a
 #### Running Cypress Tests Locally
 
 1. **Install Cypress** (already included in devDependencies):
+
 ```bash
 npm install
 ```
 
 2. **Start the development server** in one terminal:
+
 ```bash
 npm run dev
 ```
 
 3. **Run Cypress tests** in another terminal:
+
 ```bash
 npx cypress run
 ```
 
 Or open Cypress Test Runner:
+
 ```bash
 npx cypress open
 ```
@@ -172,12 +181,64 @@ VITE_MOCK_DATA=true
 
 ## Contributing
 
+We follow strict code quality and git workflow standards. See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
+
+### Quick Start
+
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Run tests: `npm run test && npx cypress run`
-4. Commit changes: `git commit -am 'Add your feature'`
+2. Install git hooks: `npm run prepare`
+3. Create a feature branch: `git checkout -b feature/your-feature`
+4. Make changes and commit: `git commit -m "feat(scope): description"`
 5. Push to branch: `git push origin feature/your-feature`
 6. Submit a pull request
+
+### Code Quality
+
+This project enforces code quality through automated tools:
+
+- **ESLint**: TypeScript/JavaScript linting
+- **Prettier**: Code formatting
+- **Husky**: Git hooks automation
+- **commitlint**: Commit message validation
+- **lint-staged**: Run linters on changed files
+
+All commits are automatically linted and formatted. Commit messages must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+#### Commit Message Format
+
+```
+type(scope): subject
+
+body
+
+footer
+```
+
+**Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `ci`, `revert`
+
+**Example**:
+
+```
+feat(property-search): add advanced filtering
+
+Add support for filtering by amenities and availability dates.
+
+Fixes #234
+```
+
+For detailed examples and guidelines, see [COMMIT_MESSAGE_EXAMPLES.md](./COMMIT_MESSAGE_EXAMPLES.md) and [GIT_WORKFLOW.md](./GIT_WORKFLOW.md).
+
+### Common Commands
+
+```bash
+npm run dev           # Start dev server
+npm run build         # Build for production
+npm run lint          # Check linting errors
+npm run lint:fix      # Fix linting errors
+npm run format        # Format all code
+npm run type-check    # Check TypeScript types
+npm run prepare       # Install git hooks
+```
 
 ## License
 
@@ -186,5 +247,6 @@ This project is licensed under the MIT License.
 ## Contact
 
 For questions or support, reach out to:
+
 - Email: support@spotacrib.co.ke
 - Phone: +254 XXX XXX XXX
