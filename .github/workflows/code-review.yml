@@ -1,0 +1,169 @@
+name: Code Review Assistant
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  code-review:
+    name: Automated Code Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Analyze PR changes
+        id: analysis
+        run: |
+          echo "## PR Analysis" > pr-analysis.md
+          echo "" >> pr-analysis.md
+          echo "### Files Changed" >> pr-analysis.md
+          git diff --name-only origin/main HEAD >> pr-analysis.md || echo "No changes detected" >> pr-analysis.md
+          echo "" >> pr-analysis.md
+          echo "### Lines Added/Removed" >> pr-analysis.md
+          git diff --stat origin/main HEAD >> pr-analysis.md || echo "No stats available" >> pr-analysis.md
+
+      - name: Check for common issues
+        run: |
+          echo "# 🔍 Code Quality Checks" > checks.md
+          echo "" >> checks.md
+          echo "## Code Quality Issues" >> checks.md
+          
+          # Check for console.log statements
+          if git diff origin/main HEAD | grep -q "console.log"; then
+            echo "⚠️ Found console.log statements - consider removing for production" >> checks.md
+          fi
+          
+          # Check for TODO/FIXME comments
+          if git diff origin/main HEAD | grep -E "TODO|FIXME" > /dev/null; then
+            echo "⚠️ Found TODO/FIXME comments in code" >> checks.md
+          fi
+          
+          # Check for large files
+          if find . -name "*.tsx" -o -name "*.ts" -o -name "*.jsx" -o -name "*.js" | xargs wc -l | awk '$1 > 400 {print $0}' | grep -v node_modules | grep -v '.next'; then
+            echo "💡 Consider breaking down large files (>400 lines)" >> checks.md
+          fi
+          
+          cat checks.md
+
+      - name: PR size check
+        id: pr-size
+        run: |
+          SIZE=$(git diff --stat origin/main HEAD | tail -1 | awk '{print $4}')
+          if [ "$SIZE" -gt 500 ]; then
+            echo "::warning::Large PR detected ($SIZE changes). Consider breaking into smaller PRs for easier review."
+            echo "large=true" >> $GITHUB_OUTPUT
+          else
+            echo "large=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment with review suggestions
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let comment = '## 📋 Automated Review Checklist\n\n';
+            comment += '- [ ] PR description clearly explains changes\n';
+            comment += '- [ ] Commits follow conventional commit format\n';
+            comment += '- [ ] Code has been linted and formatted\n';
+            comment += '- [ ] Tests have been updated (if applicable)\n';
+            comment += '- [ ] Documentation has been updated (if applicable)\n';
+            comment += '- [ ] No hardcoded values or environment-specific code\n';
+            comment += '- [ ] No sensitive information in code\n';
+            comment += '- [ ] Performance impact has been considered\n';
+            comment += '- [ ] Backward compatibility maintained\n';
+            comment += '- [ ] Accessibility requirements met\n';
+            comment += '\n---\n';
+            comment += '### 📊 Change Summary\n\n';
+            
+            if (fs.existsSync('pr-analysis.md')) {
+              comment += fs.readFileSync('pr-analysis.md', 'utf8');
+            }
+            
+            if (fs.existsSync('checks.md')) {
+              comment += '\n' + fs.readFileSync('checks.md', 'utf8');
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  typescript-check:
+    name: TypeScript Strict Mode Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript strict check
+        run: npx tsc --noEmit --strict --skipLibCheck
+        continue-on-error: true
+
+  component-validation:
+    name: React Component Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate component exports
+        run: |
+          echo "Checking component exports..."
+          find ./src/components -name "*.tsx" -type f | while read file; do
+            if ! grep -q "export" "$file"; then
+              echo "⚠️ Warning: $file may not have exports"
+            fi
+          done
+        continue-on-error: true
+
+      - name: Check for prop drilling
+        run: |
+          echo "Checking for component structure issues..."
+          # This is a simple check - in production you'd use more sophisticated tools
+          find ./src/components -name "*.tsx" | xargs wc -l | awk '$1 > 300 {print "📝 Large component: " $2 " (" $1 " lines)"}'
+        continue-on-error: true
