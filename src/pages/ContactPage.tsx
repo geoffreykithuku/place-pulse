@@ -27,27 +27,31 @@ const ContactPage = () => {
         <form className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-200">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <input
+              data-test="name-input"
               type="text"
               placeholder="Your name"
               className="px-4 py-2 border rounded-md"
             />
             <input
+              data-test="email-input"
               type="email"
               placeholder="Email"
               className="px-4 py-2 border rounded-md"
             />
           </div>
           <input
+            data-test="subject-select"
             type="text"
             placeholder="Subject"
             className="w-full px-4 py-2 border rounded-md mb-4"
           />
           <textarea
+            data-test="message-input"
             placeholder="Message"
             className="w-full px-4 py-2 border rounded-md mb-4 h-40"
           />
           <div className="text-right">
-            <Button>Send Message</Button>
+            <Button data-test="submit-contact">Send Message</Button>
           </div>
         </form>
       </main>

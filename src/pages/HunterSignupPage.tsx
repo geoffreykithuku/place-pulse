@@ -258,6 +258,7 @@ const HunterSignupPage = () => {
                               Full Name *
                             </label>
                             <input
+                              data-test="name-input"
                               type="text"
                               id="fullName"
                               name="fullName"
@@ -277,6 +278,7 @@ const HunterSignupPage = () => {
                               Email Address *
                             </label>
                             <input
+                              data-test="email-input"
                               type="email"
                               id="email"
                               name="email"
@@ -296,6 +298,7 @@ const HunterSignupPage = () => {
                               Phone Number *
                             </label>
                             <input
+                              data-test="phone-input"
                               type="tel"
                               id="phone"
                               name="phone"
@@ -315,6 +318,7 @@ const HunterSignupPage = () => {
                               Location *
                             </label>
                             <select
+                              data-test="area-input"
                               id="location"
                               name="location"
                               required
@@ -347,6 +351,7 @@ const HunterSignupPage = () => {
                               Real Estate Experience
                             </label>
                             <select
+                              data-test="experience-input"
                               id="experience"
                               name="experience"
                               value={formData.experience}
@@ -549,7 +554,7 @@ const HunterSignupPage = () => {
                       )}
                     </AnimatePresence>
 
-                    <Button type="submit" fullWidth size="lg">
+                    <Button data-test="submit-signup" type="submit" fullWidth size="lg">
                       {isSignUp
                         ? "Create Hunter Account"
                         : "Sign In to Account"}

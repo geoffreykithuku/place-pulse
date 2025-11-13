@@ -53,7 +53,7 @@ const PropertyCard = (props: PropertyCardProps) => {
   };
 
   return (
-    <Card hover className="overflow-hidden group">
+    <Card hover className="overflow-hidden group" data-test="property-card">
       {/* Image Gallery */}
       <div className="relative h-48 -m-6 mb-4 overflow-hidden">
         <img
@@ -104,7 +104,7 @@ const PropertyCard = (props: PropertyCardProps) => {
 
         {/* Verification Badge */}
         {isVerified && (
-          <div className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+          <div data-test="verified-badge" className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
             <Shield className="w-3 h-3" />
             <span>Verified</span>
           </div>
@@ -112,7 +112,7 @@ const PropertyCard = (props: PropertyCardProps) => {
 
         {/* Price Badge */}
         <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg">
-          <span className="font-bold text-primary-600">
+          <span data-test="property-price" className="font-bold text-primary-600">
             KSh {price.toLocaleString()}
           </span>
           <span className="text-xs text-neutral-500 ml-1">/month</span>
@@ -123,12 +123,12 @@ const PropertyCard = (props: PropertyCardProps) => {
       <div className="space-y-3">
         {/* Title and Location */}
         <div>
-          <h3 className="font-semibold text-lg text-neutral-900 group-hover:text-primary-600 transition-colors">
+          <h3 data-test="property-title" className="font-semibold text-lg text-neutral-900 group-hover:text-primary-600 transition-colors">
             {title}
           </h3>
           <div className="flex items-center text-neutral-600 text-sm mt-1">
             <MapPin className="w-4 h-4 mr-1" />
-            {location}
+            <span data-test="property-location">{location}</span>
           </div>
         </div>
 
@@ -154,6 +154,7 @@ const PropertyCard = (props: PropertyCardProps) => {
             </div>
             <div>
               <button
+                data-test="hunter-link"
                 onClick={handleScoutClick}
                 className="font-medium text-sm text-safari-800 hover:text-safari-600 transition-colors cursor-pointer"
               >
@@ -171,6 +172,7 @@ const PropertyCard = (props: PropertyCardProps) => {
         <div className="flex space-x-2 pt-2">
           {onViewProperty && (
             <Button
+              data-test="view-property"
               variant="outline"
               size="sm"
               onClick={() => onViewProperty(id)}
@@ -179,7 +181,7 @@ const PropertyCard = (props: PropertyCardProps) => {
               View Details
             </Button>
           )}
-          <Button size="sm" onClick={handleBooking} className="flex-1">
+          <Button data-test="book-viewing" size="sm" onClick={handleBooking} className="flex-1">
             <Calendar className="w-4 h-4 mr-1" />
             Book Viewing
           </Button>

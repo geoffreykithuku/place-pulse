@@ -114,7 +114,7 @@ const BookingModal = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div data-test="booking-modal" className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -240,6 +240,7 @@ const BookingModal = ({
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {getAvailableDates().map((date) => (
                           <button
+                            data-test="booking-date"
                             key={date.value}
                             type="button"
                             onClick={() => setSelectedDate(date.value)}
@@ -269,6 +270,7 @@ const BookingModal = ({
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                         {timeSlots.map((time) => (
                           <button
+                            data-test="booking-time"
                             key={time.value}
                             type="button"
                             onClick={() => setSelectedTime(time.value)}
@@ -302,6 +304,7 @@ const BookingModal = ({
                           Full Name *
                         </label>
                         <input
+                          data-test="booking-name"
                           type="text"
                           id="name"
                           required
@@ -319,6 +322,7 @@ const BookingModal = ({
                           Phone Number *
                         </label>
                         <input
+                          data-test="booking-phone"
                           type="tel"
                           id="phone"
                           required
@@ -338,6 +342,7 @@ const BookingModal = ({
                         Email Address *
                       </label>
                       <input
+                        data-test="booking-email"
                         type="email"
                         id="email"
                         required
@@ -436,7 +441,7 @@ const BookingModal = ({
                       Continue
                     </Button>
                   ) : (
-                    <Button type="submit" disabled={!canSubmit}>
+                    <Button data-test="confirm-booking" type="submit" disabled={!canSubmit}>
                       Confirm Booking
                     </Button>
                   )}

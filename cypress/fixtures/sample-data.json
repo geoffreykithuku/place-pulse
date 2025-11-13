@@ -1,0 +1,74 @@
+{
+  "listings": [
+    {
+      "id": "1",
+      "title": "Modern 2BR Apartment in Westlands",
+      "location": "Westlands, Nairobi",
+      "price": 45000,
+      "beds": 2,
+      "baths": 1,
+      "type": "Apartment",
+      "description": "Spacious 2 bedroom apartment with modern amenities",
+      "hunter": {
+        "id": "hunter1",
+        "name": "John Kamau",
+        "rating": 4.8,
+        "verified": true
+      },
+      "images": ["image1.jpg", "image2.jpg"],
+      "features": ["Parking", "Security", "Water"]
+    },
+    {
+      "id": "2",
+      "title": "Cozy Bedsitter in Koinange Street",
+      "location": "Koinange Street, Nairobi",
+      "price": 12000,
+      "beds": 1,
+      "baths": 1,
+      "type": "Bedsitter",
+      "description": "Affordable bedsitter perfect for students",
+      "hunter": {
+        "id": "hunter2",
+        "name": "Mary Wanjiku",
+        "rating": 4.9,
+        "verified": true
+      },
+      "images": ["image3.jpg"],
+      "features": ["Electricity", "Water"]
+    }
+  ],
+  "hunters": [
+    {
+      "id": "hunter1",
+      "name": "John Kamau",
+      "email": "john@example.com",
+      "phone": "+254712345678",
+      "area": "Westlands",
+      "rating": 4.8,
+      "listingsCount": 15,
+      "verified": true
+    },
+    {
+      "id": "hunter2",
+      "name": "Mary Wanjiku",
+      "email": "mary@example.com",
+      "phone": "+254723456789",
+      "area": "CBD",
+      "rating": 4.9,
+      "listingsCount": 23,
+      "verified": true
+    }
+  ],
+  "users": {
+    "renter": {
+      "email": "renter@example.com",
+      "password": "password123",
+      "name": "Test Renter"
+    },
+    "hunter": {
+      "email": "hunter@example.com",
+      "password": "password123",
+      "name": "Test Hunter"
+    }
+  }
+}

@@ -98,6 +98,7 @@ const TestimonialsSection = () => {
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
+              data-test="testimonial"
               key={index}
               variants={itemVariants}
               className={`relative bg-gradient-to-br ${
