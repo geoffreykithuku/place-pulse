@@ -27,12 +27,7 @@ interface BookingData {
   notes: string;
 }
 
-const BookingModal = ({
-  isOpen,
-  onClose,
-  property,
-  onBookingConfirm,
-}: BookingModalProps) => {
+const BookingModal = ({ isOpen, onClose, property, onBookingConfirm }: BookingModalProps) => {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState("");
@@ -43,7 +38,7 @@ const BookingModal = ({
 
   // Generate available dates (next 14 days, excluding past dates)
   const getAvailableDates = () => {
-    const dates = [];
+    const dates: Array<{ value: string; label: string; dayName: string }> = [];
     const today = new Date();
 
     for (let i = 1; i <= 14; i++) {
@@ -52,8 +47,11 @@ const BookingModal = ({
 
       // Skip Sundays (day 0)
       if (date.getDay() !== 0) {
+        const isoDate = date.toISOString().split("T")[0];
+        if (!isoDate) continue;
+
         dates.push({
-          value: date.toISOString().split("T")[0],
+          value: isoDate,
           label: date.toLocaleDateString("en-KE", {
             weekday: "long",
             month: "short",
@@ -114,7 +112,10 @@ const BookingModal = ({
 
   return (
     <AnimatePresence>
-      <div data-test="booking-modal" className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div
+        data-test="booking-modal"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -135,9 +136,7 @@ const BookingModal = ({
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-neutral-200">
               <div>
-                <h2 className="text-2xl font-bold text-neutral-900">
-                  Book Property Viewing
-                </h2>
+                <h2 className="text-2xl font-bold text-neutral-900">Book Property Viewing</h2>
                 <p className="text-neutral-600 mt-1">{property.title}</p>
               </div>
               <button
@@ -170,9 +169,7 @@ const BookingModal = ({
                 <div className="flex-1 h-0.5 bg-neutral-200">
                   <div
                     className={`h-full transition-all duration-300 ${
-                      currentStep >= 2
-                        ? "bg-safari-600 w-full"
-                        : "bg-neutral-200 w-0"
+                      currentStep >= 2 ? "bg-safari-600 w-full" : "bg-neutral-200 w-0"
                     }`}
                   />
                 </div>
@@ -201,9 +198,7 @@ const BookingModal = ({
                 <div className="bg-safari-50 p-4 rounded-lg">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-semibold text-neutral-900 mb-1">
-                        {property.title}
-                      </h3>
+                      <h3 className="font-semibold text-neutral-900 mb-1">{property.title}</h3>
                       <div className="flex items-center text-neutral-600 text-sm mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
                         {property.location}
@@ -214,12 +209,8 @@ const BookingModal = ({
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-safari-600">
-                        KSh 200
-                      </div>
-                      <div className="text-sm text-neutral-500">
-                        Viewing Fee
-                      </div>
+                      <div className="text-lg font-bold text-safari-600">KSh 200</div>
+                      <div className="text-sm text-neutral-500">Viewing Fee</div>
                     </div>
                   </div>
                 </div>
@@ -250,9 +241,7 @@ const BookingModal = ({
                                 : "border-neutral-200 hover:border-safari-300 hover:bg-safari-50"
                             }`}
                           >
-                            <div className="text-xs text-neutral-500 mb-1">
-                              {date.dayName}
-                            </div>
+                            <div className="text-xs text-neutral-500 mb-1">{date.dayName}</div>
                             <div className="font-medium">
                               {date.label.split(" ").slice(1).join(" ")}
                             </div>
@@ -372,39 +361,29 @@ const BookingModal = ({
 
                     {/* Booking Summary */}
                     <Card variant="outlined" className="bg-neutral-50">
-                      <h4 className="font-semibold text-neutral-900 mb-3">
-                        Booking Summary
-                      </h4>
+                      <h4 className="font-semibold text-neutral-900 mb-3">Booking Summary</h4>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
                           <span className="text-neutral-600">Date:</span>
                           <span className="font-medium">
                             {selectedDate &&
-                              new Date(selectedDate).toLocaleDateString(
-                                "en-KE",
-                                {
-                                  weekday: "long",
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric",
-                                }
-                              )}
+                              new Date(selectedDate).toLocaleDateString("en-KE", {
+                                weekday: "long",
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
                           </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-neutral-600">Time:</span>
                           <span className="font-medium">
-                            {
-                              timeSlots.find((t) => t.value === selectedTime)
-                                ?.label
-                            }
+                            {timeSlots.find((t) => t.value === selectedTime)?.label}
                           </span>
                         </div>
                         <div className="flex justify-between border-t pt-2">
                           <span className="text-neutral-600">Viewing Fee:</span>
-                          <span className="font-bold text-safari-600">
-                            KSh 200
-                          </span>
+                          <span className="font-bold text-safari-600">KSh 200</span>
                         </div>
                       </div>
                     </Card>
@@ -423,11 +402,7 @@ const BookingModal = ({
 
                 <div className="flex items-center space-x-3">
                   {currentStep === 2 && (
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      onClick={() => setCurrentStep(1)}
-                    >
+                    <Button type="button" variant="ghost" onClick={() => setCurrentStep(1)}>
                       Back
                     </Button>
                   )}

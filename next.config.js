@@ -4,17 +4,22 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
-  experimental: {
-    typedRoutes: false,
-  },
   images: {
-    domains: ["localhost", "spotacrib.co.ke", "images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "spotacrib.co.ke",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
     formats: ["image/webp", "image/avif"],
   },
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   async headers() {
     return [
       {
@@ -29,8 +34,12 @@ const nextConfig = {
             value: "nosniff",
           },
           {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
             key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
+            value: "strict-origin-when-cross-origin",
           },
         ],
       },

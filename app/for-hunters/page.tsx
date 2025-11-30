@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Button from "../../src/components/ui/Button";
-import HunterCTA from "../../src/components/ui/HunterCTA";
+import Button from "@/src/components/ui/Button";
+import HunterCTA from "@/src/components/ui/HunterCTA";
 
 export default function ForHuntersPage() {
   return (

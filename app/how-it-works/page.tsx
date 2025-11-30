@@ -1,6 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "How It Works",
+  description: "Learn how Spot A Crib connects renters with verified house hunters.",
+};
 
 export default function HowItWorksPage() {
   return (

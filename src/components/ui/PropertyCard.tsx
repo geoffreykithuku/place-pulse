@@ -34,7 +34,7 @@ const PropertyCard = (props: PropertyCardProps) => {
     onBookViewing,
     onBook,
     onShare,
-    layout = "grid",
+    layout: _layout = "grid",
   } = props;
 
   const router = useRouter();
@@ -106,7 +106,10 @@ const PropertyCard = (props: PropertyCardProps) => {
 
         {/* Verification Badge */}
         {isVerified && (
-          <div data-test="verified-badge" className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+          <div
+            data-test="verified-badge"
+            className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center space-x-1"
+          >
             <Shield className="w-3 h-3" />
             <span>Verified</span>
           </div>
@@ -125,7 +128,10 @@ const PropertyCard = (props: PropertyCardProps) => {
       <div className="space-y-3">
         {/* Title and Location */}
         <div>
-          <h3 data-test="property-title" className="font-semibold text-lg text-neutral-900 group-hover:text-primary-600 transition-colors">
+          <h3
+            data-test="property-title"
+            className="font-semibold text-lg text-neutral-900 group-hover:text-primary-600 transition-colors"
+          >
             {title}
           </h3>
           <div className="flex items-center text-neutral-600 text-sm mt-1">
@@ -150,9 +156,7 @@ const PropertyCard = (props: PropertyCardProps) => {
         <div className="flex items-center justify-between py-3 border-t border-neutral-100">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-              <span className="text-primary-600 font-semibold text-sm">
-                {hunterName.charAt(0)}
-              </span>
+              <span className="text-primary-600 font-semibold text-sm">{hunterName.charAt(0)}</span>
             </div>
             <div>
               <button

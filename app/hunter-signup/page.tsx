@@ -1,6 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Become a Scout",
+  description: "Sign up to become a verified house hunter and start earning.",
+};
 
 export default function HunterSignupPage() {
   return (

@@ -1,6 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with Spot A Crib for support and inquiries.",
+};
 
 export default function ContactPage() {
   return (

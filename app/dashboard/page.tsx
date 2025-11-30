@@ -1,6 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Manage your properties and viewings.",
+};
 
 export default function DashboardPage() {
   return (

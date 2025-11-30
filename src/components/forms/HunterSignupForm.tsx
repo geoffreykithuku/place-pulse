@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  User, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Shield, 
-  Upload, 
-  Eye, 
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Shield,
+  Upload,
+  Eye,
   EyeOff,
   CheckCircle,
   AlertCircle,
-  Star
-} from 'lucide-react';
-import Button from '../ui/Button';
+  Star,
+} from "lucide-react";
+import Button from "../ui/Button";
 
 interface FormData {
   fullName: string;
@@ -32,14 +32,14 @@ interface FormData {
 
 const HunterSignupForm = () => {
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phone: '',
-    location: '',
-    experience: 'beginner',
-    idNumber: '',
-    password: '',
-    confirmPassword: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    location: "",
+    experience: "beginner",
+    idNumber: "",
+    password: "",
+    confirmPassword: "",
     profilePhoto: null,
     idDocument: null,
     agreeToTerms: false,
@@ -52,40 +52,63 @@ const HunterSignupForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const kenyanLocations = [
-    'Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret', 'Thika', 'Machakos', 
-    'Meru', 'Nyeri', 'Kericho', 'Kitale', 'Garissa', 'Kakamega', 'Malindi'
+    "Nairobi",
+    "Mombasa",
+    "Kisumu",
+    "Nakuru",
+    "Eldoret",
+    "Thika",
+    "Machakos",
+    "Meru",
+    "Nyeri",
+    "Kericho",
+    "Kitale",
+    "Garissa",
+    "Kakamega",
+    "Malindi",
   ];
 
   const experienceLevels = [
-    { value: 'beginner', label: 'Beginner (0-1 years)', description: 'New to house hunting' },
-    { value: 'intermediate', label: 'Intermediate (1-3 years)', description: 'Some experience helping people find homes' },
-    { value: 'experienced', label: 'Experienced (3+ years)', description: 'Seasoned house hunter with proven track record' }
+    { value: "beginner", label: "Beginner (0-1 years)", description: "New to house hunting" },
+    {
+      value: "intermediate",
+      label: "Intermediate (1-3 years)",
+      description: "Some experience helping people find homes",
+    },
+    {
+      value: "experienced",
+      label: "Experienced (3+ years)",
+      description: "Seasoned house hunter with proven track record",
+    },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
-    
-    if (type === 'checkbox') {
+
+    if (type === "checkbox") {
       const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
+      setFormData((prev) => ({ ...prev, [name]: checked }));
     } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, fieldName: keyof FormData) => {
     const file = e.target.files?.[0] || null;
-    setFormData(prev => ({ ...prev, [fieldName]: file }));
+    setFormData((prev) => ({ ...prev, [fieldName]: file }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // TODO: Send formData to API endpoint
+    // console.log('Form submitted:', formData);
     setIsSubmitting(false);
     // Handle success/error states here
   };
@@ -103,7 +126,13 @@ const HunterSignupForm = () => {
       case 1:
         return formData.fullName && formData.email && formData.phone && formData.location;
       case 2:
-        return formData.experience && formData.idNumber && formData.password && formData.confirmPassword && formData.password === formData.confirmPassword;
+        return (
+          formData.experience &&
+          formData.idNumber &&
+          formData.password &&
+          formData.confirmPassword &&
+          formData.password === formData.confirmPassword
+        );
       case 3:
         return formData.agreeToTerms && formData.agreeToBackground;
       default:
@@ -116,7 +145,10 @@ const HunterSignupForm = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary-400/10 to-secondary-400/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-accent-400/10 to-safari-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-accent-400/10 to-safari-400/10 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
 
       <div className="relative max-w-4xl mx-auto">
@@ -131,13 +163,14 @@ const HunterSignupForm = () => {
             <span className="font-swahili mr-2">Jiunge nasi</span>
             <span className="text-neutral-600">• Join our team</span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl font-display font-bold text-neutral-900 mb-4">
             Become a <span className="gradient-text-safari">Verified</span> House Hunter
           </h1>
-          
+
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Help Kenyans find their perfect homes while earning money. Join our trusted network of local house scouts.
+            Help Kenyans find their perfect homes while earning money. Join our trusted network of
+            local house scouts.
           </p>
         </motion.div>
 
@@ -151,20 +184,25 @@ const HunterSignupForm = () => {
           <div className="flex items-center space-x-4">
             {[1, 2, 3].map((step) => (
               <div key={step} className="flex items-center">
-                <div className={`
+                <div
+                  className={`
                   w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300
-                  ${currentStep >= step 
-                    ? 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-glow' 
-                    : 'bg-neutral-200 text-neutral-500'
+                  ${
+                    currentStep >= step
+                      ? "bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-glow"
+                      : "bg-neutral-200 text-neutral-500"
                   }
-                `}>
+                `}
+                >
                   {currentStep > step ? <CheckCircle className="w-5 h-5" /> : step}
                 </div>
                 {step < 3 && (
-                  <div className={`
+                  <div
+                    className={`
                     w-16 h-1 mx-2 rounded-full transition-all duration-300
-                    ${currentStep > step ? 'bg-gradient-to-r from-primary-600 to-secondary-600' : 'bg-neutral-200'}
-                  `} />
+                    ${currentStep > step ? "bg-gradient-to-r from-primary-600 to-secondary-600" : "bg-neutral-200"}
+                  `}
+                  />
                 )}
               </div>
             ))}
@@ -262,7 +300,9 @@ const HunterSignupForm = () => {
                       >
                         <option value="">Select your location</option>
                         {kenyanLocations.map((location) => (
-                          <option key={location} value={location}>{location}</option>
+                          <option key={location} value={location}>
+                            {location}
+                          </option>
                         ))}
                       </select>
                     </div>
@@ -290,7 +330,10 @@ const HunterSignupForm = () => {
                   </label>
                   <div className="space-y-3">
                     {experienceLevels.map((level) => (
-                      <label key={level.value} className="flex items-start p-4 border-2 border-neutral-200/50 rounded-xl cursor-pointer hover:border-primary-300 transition-all duration-200 bg-white/80 backdrop-blur-sm">
+                      <label
+                        key={level.value}
+                        className="flex items-start p-4 border-2 border-neutral-200/50 rounded-xl cursor-pointer hover:border-primary-300 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                      >
                         <input
                           type="radio"
                           name="experience"
@@ -324,7 +367,9 @@ const HunterSignupForm = () => {
                       required
                     />
                   </div>
-                  <p className="text-xs text-neutral-500 mt-1">Required for verification purposes</p>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    Required for verification purposes
+                  </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -347,7 +392,11 @@ const HunterSignupForm = () => {
                         onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
                       >
-                        {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        {showPassword ? (
+                          <EyeOff className="w-5 h-5" />
+                        ) : (
+                          <Eye className="w-5 h-5" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -371,7 +420,11 @@ const HunterSignupForm = () => {
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
                       >
-                        {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        {showConfirmPassword ? (
+                          <EyeOff className="w-5 h-5" />
+                        ) : (
+                          <Eye className="w-5 h-5" />
+                        )}
                       </button>
                     </div>
                     {formData.confirmPassword && formData.password !== formData.confirmPassword && (
@@ -394,7 +447,9 @@ const HunterSignupForm = () => {
                 className="space-y-6"
               >
                 <div className="text-center mb-8">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-2">Documents & Agreement</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-2">
+                    Documents & Agreement
+                  </h2>
                   <p className="text-neutral-600">Final step to complete your application</p>
                 </div>
 
@@ -408,7 +463,7 @@ const HunterSignupForm = () => {
                       <input
                         type="file"
                         accept="image/*"
-                        onChange={(e) => handleFileChange(e, 'profilePhoto')}
+                        onChange={(e) => handleFileChange(e, "profilePhoto")}
                         className="hidden"
                         id="profilePhoto"
                       />
@@ -434,7 +489,7 @@ const HunterSignupForm = () => {
                       <input
                         type="file"
                         accept="image/*,.pdf"
-                        onChange={(e) => handleFileChange(e, 'idDocument')}
+                        onChange={(e) => handleFileChange(e, "idDocument")}
                         className="hidden"
                         id="idDocument"
                         required
@@ -465,9 +520,13 @@ const HunterSignupForm = () => {
                     />
                     <div className="ml-3 text-sm">
                       <span className="text-neutral-900">I agree to the </span>
-                      <a href="#" className="text-primary-600 hover:text-primary-700 font-medium">Terms of Service</a>
+                      <a href="#" className="text-primary-600 hover:text-primary-700 font-medium">
+                        Terms of Service
+                      </a>
                       <span className="text-neutral-900"> and </span>
-                      <a href="#" className="text-primary-600 hover:text-primary-700 font-medium">Privacy Policy</a>
+                      <a href="#" className="text-primary-600 hover:text-primary-700 font-medium">
+                        Privacy Policy
+                      </a>
                     </div>
                   </label>
 
@@ -518,12 +577,7 @@ const HunterSignupForm = () => {
             <div className="flex justify-between items-center mt-8 pt-6 border-t border-neutral-200">
               <div>
                 {currentStep > 1 && (
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    onClick={prevStep}
-                    className="px-6"
-                  >
+                  <Button type="button" variant="ghost" onClick={prevStep} className="px-6">
                     Previous
                   </Button>
                 )}
@@ -551,7 +605,7 @@ const HunterSignupForm = () => {
                     glow
                     className="px-8"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Complete Application'}
+                    {isSubmitting ? "Submitting..." : "Complete Application"}
                   </Button>
                 )}
               </div>
@@ -567,10 +621,12 @@ const HunterSignupForm = () => {
           className="text-center mt-8 text-sm text-neutral-500"
         >
           <p>
-            <span className="font-swahili italic">"Kazi ya mkono, haina ubaya"</span> - Hard work pays off
+            <span className="font-swahili italic">"Kazi ya mkono, haina ubaya"</span> - Hard work
+            pays off
           </p>
           <p className="mt-2">
-            Applications are reviewed within 2-3 business days. You'll receive an email confirmation once approved.
+            Applications are reviewed within 2-3 business days. You'll receive an email confirmation
+            once approved.
           </p>
         </motion.div>
       </div>

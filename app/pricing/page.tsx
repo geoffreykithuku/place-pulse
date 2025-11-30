@@ -1,6 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Pricing",
+  description: "Affordable pricing plans for house hunters and scouts.",
+};
 
 export default function PricingPage() {
   return (

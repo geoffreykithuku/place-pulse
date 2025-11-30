@@ -1,16 +1,16 @@
-"use client";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+// Lazy load heavy components for better performance
+const HeroSection = dynamic(() => import("../src/components/home/HeroSection"));
+const TrustSection = dynamic(() => import("../src/components/home/TrustSection"));
+const HowItWorksSection = dynamic(() => import("../src/components/home/HowItWorksSection"));
+const WhyChooseUsSection = dynamic(() => import("../src/components/home/WhyChooseUsSection"));
+const FeaturedAreasSection = dynamic(() => import("../src/components/home/FeaturedAreasSection"));
+const TestimonialsSection = dynamic(() => import("../src/components/home/TestimonialsSection"));
+const CTASection = dynamic(() => import("../src/components/home/CTASection"));
 
-import HeroSection from "../src/components/home/HeroSection";
-import TrustSection from "../src/components/home/TrustSection";
-import HowItWorksSection from "../src/components/home/HowItWorksSection";
-import WhyChooseUsSection from "../src/components/home/WhyChooseUsSection";
-import FeaturedAreasSection from "../src/components/home/FeaturedAreasSection";
-import TestimonialsSection from "../src/components/home/TestimonialsSection";
-import CTASection from "../src/components/home/CTASection";
-
-const defaultJsonLd = {
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Spot A Crib",
@@ -34,30 +34,64 @@ const defaultJsonLd = {
     "https://twitter.com/spotacrib",
     "https://instagram.com/spotacrib",
   ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "2500",
+  },
+};
+
+export const metadata: Metadata = {
+  title: "Find Your Perfect Home in Kenya Faster",
+  description:
+    "Connect with verified house hunters who know the best available rentals in your area. Skip the endless social media scrolling. Find bedsitters, apartments, and family homes across Kenya.",
+  keywords: [
+    "house hunting Kenya",
+    "apartments Nairobi",
+    "bedsitters Kenya",
+    "rental homes Mombasa",
+    "house scouts Kenya",
+    "verified house hunters",
+    "property search Kenya",
+    "rental homes Nairobi",
+  ],
+  openGraph: {
+    title: "Find Your Perfect Home in Kenya Faster",
+    description:
+      "Connect with verified house hunters who know the best available rentals in your area.",
+    type: "website",
+    images: [
+      {
+        url: "/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Spot A Crib - House Hunting Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Find Your Perfect Home in Kenya Faster",
+    description: "Connect with verified house hunters who know the best available rentals.",
+    images: ["/og-home.jpg"],
+  },
 };
 
 export default function HomePage() {
-  const title = "Find Your Perfect Home in Kenya Faster | Spot A Crib";
-  const description =
-    "Connect with verified house hunters who know the best available rentals in your area. Skip the endless social media scrolling. Find bedsitters, apartments, and family homes across Kenya.";
-  const ogImage = "https://spotacrib.co.ke/og-image.jpg";
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(defaultJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen">
-        <HeroSection />
-        <TrustSection />
-        <HowItWorksSection />
-        <WhyChooseUsSection />
-        <FeaturedAreasSection />
-        <TestimonialsSection />
-        <CTASection />
-      </div>
+      <HeroSection />
+      <TrustSection />
+      <HowItWorksSection />
+      <WhyChooseUsSection />
+      <FeaturedAreasSection />
+      <TestimonialsSection />
+      <CTASection />
     </>
   );
 }
