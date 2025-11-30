@@ -1,4 +1,6 @@
-'use client';
+"use client";
+
+export const dynamic = "force-dynamic";
 
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
@@ -26,7 +28,7 @@ export default function BrowsePage() {
 
   // Filter and search logic
   const filteredProperties = useMemo(() => {
-    let results = mockProperties.filter((property) => {
+    const results = mockProperties.filter((property) => {
       // Text search
       if (query) {
         const searchText =
@@ -120,12 +122,9 @@ export default function BrowsePage() {
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-display font-bold mb-4">
-          Browse Houses
-        </h1>
+        <h1 className="text-3xl font-display font-bold mb-4">Browse Houses</h1>
         <p className="text-neutral-600">
-          Find verified listings across Kenya. Use the filters to narrow down
-          your search.
+          Find verified listings across Kenya. Use the filters to narrow down your search.
         </p>
       </div>
 
@@ -246,12 +245,9 @@ export default function BrowsePage() {
           <div className="text-neutral-400 mb-4">
             <Search className="w-16 h-16 mx-auto mb-4" />
           </div>
-          <h3 className="text-xl font-semibold text-neutral-900 mb-2">
-            No properties found
-          </h3>
+          <h3 className="text-xl font-semibold text-neutral-900 mb-2">No properties found</h3>
           <p className="text-neutral-600 mb-4">
-            Try adjusting your search criteria or browse all available
-            properties.
+            Try adjusting your search criteria or browse all available properties.
           </p>
           <Button onClick={handleReset} variant="outline">
             Clear All Filters

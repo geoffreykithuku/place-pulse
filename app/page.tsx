@@ -1,4 +1,6 @@
-'use client';
+"use client";
+
+export const dynamic = "force-dynamic";
 
 import HeroSection from "../src/components/home/HeroSection";
 import TrustSection from "../src/components/home/TrustSection";
@@ -36,7 +38,8 @@ const defaultJsonLd = {
 
 export default function HomePage() {
   const title = "Find Your Perfect Home in Kenya Faster | Spot A Crib";
-  const description = "Connect with verified house hunters who know the best available rentals in your area. Skip the endless social media scrolling. Find bedsitters, apartments, and family homes across Kenya.";
+  const description =
+    "Connect with verified house hunters who know the best available rentals in your area. Skip the endless social media scrolling. Find bedsitters, apartments, and family homes across Kenya.";
   const ogImage = "https://spotacrib.co.ke/og-image.jpg";
 
   return (

@@ -1,7 +1,9 @@
-'use client';
+"use client";
 
-import { useParams } from 'next/navigation';
-import { mockScouts, mockProperties } from '../../../src/data/mockData';
+export const dynamic = "force-dynamic";
+
+import { useParams } from "next/navigation";
+import { mockScouts, mockProperties } from "../../../src/data/mockData";
 
 export default function HunterProfilePage() {
   const params = useParams();

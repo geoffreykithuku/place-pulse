@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { Menu, X, Search, Heart } from "lucide-react";
 import { clsx } from "clsx";
 import Button from "../ui/Button";
@@ -18,7 +18,7 @@ const navigation = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +57,7 @@ const Header = () => {
                 href={item.href}
                 className={clsx(
                   "text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-md",
-                  router.pathname === item.href
+                  pathname === item.href
                     ? "text-safari-600 bg-safari-50"
                     : "text-neutral-700 hover:text-safari-600 hover:bg-neutral-50"
                 )}
@@ -85,11 +85,7 @@ const Header = () => {
             className="md:hidden p-2 text-neutral-700 hover:text-safari-600"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
@@ -103,7 +99,7 @@ const Header = () => {
                   href={item.href}
                   className={clsx(
                     "block text-base font-medium transition-colors px-3 py-2 rounded-md",
-                    router.pathname === item.href
+                    pathname === item.href
                       ? "text-safari-600 bg-safari-50"
                       : "text-neutral-700 hover:text-safari-600 hover:bg-neutral-50"
                   )}

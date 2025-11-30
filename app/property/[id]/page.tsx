@@ -1,7 +1,9 @@
-'use client';
+"use client";
 
-import { useParams } from 'next/navigation';
-import { mockProperties } from '../../../src/data/mockData';
+export const dynamic = "force-dynamic";
+
+import { useParams } from "next/navigation";
+import { mockProperties } from "../../../src/data/mockData";
 
 export default function PropertyDetailsPage() {
   const params = useParams();
@@ -22,7 +24,9 @@ export default function PropertyDetailsPage() {
       <div>
         <h1 className="text-3xl font-display font-bold mb-4">{property.title}</h1>
         <p className="text-lg text-neutral-600 mb-4">{property.location}</p>
-        <div className="text-2xl font-bold text-primary-600">KSh {property.price.toLocaleString()}</div>
+        <div className="text-2xl font-bold text-primary-600">
+          KSh {property.price.toLocaleString()}
+        </div>
       </div>
     </main>
   );

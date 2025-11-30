@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/for-hunters/page": "app/for-hunters/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/how-it-works/page": "app/how-it-works/page.js",
+  "/hunter-signup/page": "app/hunter-signup/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/hunter/[username]/page": "app/hunter/[username]/page.js",
+  "/page": "app/page.js",
+  "/scouts/page": "app/scouts/page.js",
+  "/property/[id]/page": "app/property/[id]/page.js",
+  "/browse/page": "app/browse/page.js"
+}
