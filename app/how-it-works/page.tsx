@@ -15,7 +15,6 @@ import {
   Headphones,
   Award,
   MapPin,
-  Filter,
   MessageSquare,
   TrendingUp,
 } from "lucide-react";

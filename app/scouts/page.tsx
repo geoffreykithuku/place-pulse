@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, MapPin, Award, CheckCircle, Search, Filter } from "lucide-react";
+import { Star, MapPin, Award, CheckCircle, Search } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Scouts - Verified House Hunters",
