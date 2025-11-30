@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Home } from "lucide-react";
 
 const footerLinks = {
   company: [
@@ -60,7 +59,9 @@ export default function Footer() {
                 href="/"
                 className="flex items-center space-x-2 text-xl font-bold text-white mb-4 transition-opacity hover:opacity-80"
               >
-                <Image src="/logo-white.svg" alt="Spot A Crib" width={32} height={32} />
+                <div className="w-8 h-8 bg-safari-600 rounded-lg flex items-center justify-center">
+                  <Home className="w-5 h-5 text-white" />
+                </div>
                 <span>Spot A Crib</span>
               </Link>
               <p className="text-neutral-400 mb-6 max-w-md">

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search, Heart } from "lucide-react";
+import { Menu, X, Search, Heart, Home } from "lucide-react";
 import { clsx } from "clsx";
 import Button from "../ui/Button";
 
@@ -45,7 +45,9 @@ const Header = () => {
             href="/"
             className="flex items-center space-x-2 text-xl font-display font-bold text-safari-600"
           >
-            <img src="/logo.svg" alt="Spot A Crib" className="w-8 h-8" />
+            <div className="w-8 h-8 bg-safari-600 rounded-lg flex items-center justify-center">
+              <Home className="w-5 h-5 text-white" />
+            </div>
             <span className="hidden sm:block">Spot A Crib</span>
           </Link>
 

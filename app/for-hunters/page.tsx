@@ -6,7 +6,7 @@ import HunterCTA from "@/src/components/ui/HunterCTA";
 
 export default function ForHuntersPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
       <h1 className="text-3xl font-display font-bold mb-4">
         Turn Your Local Knowledge Into Income
       </h1>

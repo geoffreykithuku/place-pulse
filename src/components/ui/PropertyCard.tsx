@@ -59,7 +59,10 @@ const PropertyCard = (props: PropertyCardProps) => {
       {/* Image Gallery */}
       <div className="relative h-48 -m-6 mb-4 overflow-hidden">
         <img
-          src={images[currentImageIndex] || "/placeholder-house.jpg"}
+          src={
+            images[currentImageIndex] ||
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
+          }
           alt={title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />

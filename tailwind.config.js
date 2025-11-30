@@ -2,8 +2,10 @@
 
 const config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -122,7 +124,15 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        sans: [
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
         display: ["Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "Fira Code", "Consolas", "monospace"],
         swahili: ["Inter", "system-ui", "sans-serif"], // For Swahili text
@@ -143,12 +153,12 @@ const config = {
         "9xl": ["8rem", { lineHeight: "1", letterSpacing: "-0.025em" }],
       },
       spacing: {
-        "18": "4.5rem",
-        "88": "22rem",
-        "128": "32rem",
-        "144": "36rem",
-        "160": "40rem",
-        "192": "48rem",
+        18: "4.5rem",
+        88: "22rem",
+        128: "32rem",
+        144: "36rem",
+        160: "40rem",
+        192: "48rem",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
@@ -159,9 +169,9 @@ const config = {
         "slide-in-right": "slideInRight 0.6s ease-out",
         "bounce-light": "bounce 1s ease-in-out 2",
         "pulse-slow": "pulse 3s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "glow": "glow 2s ease-in-out infinite alternate",
-        "shimmer": "shimmer 2.5s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite alternate",
+        shimmer: "shimmer 2.5s ease-in-out infinite",
         "scale-in": "scaleIn 0.5s ease-out",
         "rotate-slow": "rotateSlow 20s linear infinite",
       },
@@ -215,10 +225,10 @@ const config = {
         xs: "2px",
       },
       boxShadow: {
-        "soft": "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)",
-        "medium": "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        "hard": "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.04)",
-        "glow": "0 0 20px rgba(14, 165, 233, 0.3)",
+        soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)",
+        medium: "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        hard: "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.04)",
+        glow: "0 0 20px rgba(14, 165, 233, 0.3)",
         "glow-lg": "0 0 40px rgba(14, 165, 233, 0.4)",
       },
     },

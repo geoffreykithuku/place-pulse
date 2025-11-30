@@ -10,18 +10,17 @@ const FeaturedAreasSection = () => {
       name: "Nairobi",
       properties: "8,500+ properties",
       averageRent: "KSh 15,000 - 80,000",
-      image: "/areas/nairobi.jpg",
+      image: "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80",
       popular: true,
       growth: "+15%",
-      description:
-        "Capital city with diverse housing options from Eastlands to Westlands",
+      description: "Capital city with diverse housing options from Eastlands to Westlands",
       neighborhoods: ["Westlands", "Kilimani", "South B", "Eastleigh", "Karen"],
     },
     {
       name: "Mombasa",
       properties: "3,200+ properties",
       averageRent: "KSh 12,000 - 45,000",
-      image: "/areas/mombasa.jpg",
+      image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800&q=80",
       popular: false,
       growth: "+8%",
       description: "Coastal city with beachfront and urban housing options",
@@ -31,60 +30,41 @@ const FeaturedAreasSection = () => {
       name: "Kisumu",
       properties: "1,800+ properties",
       averageRent: "KSh 8,000 - 35,000",
-      image: "/areas/kisumu.jpg",
+      image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=800&q=80",
       popular: false,
       growth: "+12%",
       description: "Lakeside city with affordable housing near Lake Victoria",
-      neighborhoods: [
-        "Milimani",
-        "Kondele",
-        "Mamboleo",
-        "Nyalenda",
-        "Tom Mboya",
-      ],
+      neighborhoods: ["Milimani", "Kondele", "Mamboleo", "Nyalenda", "Tom Mboya"],
     },
     {
       name: "Nakuru",
       properties: "2,100+ properties",
       averageRent: "KSh 10,000 - 40,000",
-      image: "/areas/nakuru.jpg",
+      image: "https://images.unsplash.com/photo-1580837119756-563d608dd119?w=800&q=80",
       popular: false,
       growth: "+10%",
       description: "Growing city with modern amenities and great connectivity",
-      neighborhoods: [
-        "Milimani",
-        "Section 58",
-        "Flamingo",
-        "Pipeline",
-        "London",
-      ],
+      neighborhoods: ["Milimani", "Section 58", "Flamingo", "Pipeline", "London"],
     },
     {
       name: "Eldoret",
       properties: "1,500+ properties",
       averageRent: "KSh 7,000 - 30,000",
-      image: "/areas/eldoret.jpg",
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80",
       popular: false,
       growth: "+9%",
-      description:
-        "Athletic hub with university housing and family-friendly areas",
+      description: "Athletic hub with university housing and family-friendly areas",
       neighborhoods: ["Pioneer", "Langas", "West Indies", "Kapseret", "Kimumu"],
     },
     {
       name: "Thika",
       properties: "1,200+ properties",
       averageRent: "KSh 6,000 - 25,000",
-      image: "/areas/thika.jpg",
+      image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
       popular: false,
       growth: "+14%",
       description: "Industrial town with affordable housing close to Nairobi",
-      neighborhoods: [
-        "Makongeni",
-        "Kenyatta Road",
-        "Section 7",
-        "Stadium",
-        "Kiganjo",
-      ],
+      neighborhoods: ["Makongeni", "Kenyatta Road", "Section 7", "Stadium", "Kiganjo"],
     },
   ];
 
@@ -168,9 +148,7 @@ const FeaturedAreasSection = () => {
                 <div className="absolute bottom-4 left-4 text-white">
                   <div className="flex items-center space-x-2">
                     <Home className="w-4 h-4" />
-                    <span className="text-sm font-medium">
-                      {area.properties}
-                    </span>
+                    <span className="text-sm font-medium">{area.properties}</span>
                   </div>
                 </div>
               </div>
@@ -178,30 +156,23 @@ const FeaturedAreasSection = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-neutral-900">
-                    {area.name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-neutral-900">{area.name}</h3>
                   <div className="flex items-center text-neutral-500">
                     <MapPin className="w-4 h-4 mr-1" />
                   </div>
                 </div>
 
-                <p className="text-neutral-600 text-sm mb-4 line-clamp-2">
-                  {area.description}
-                </p>
+                <p className="text-neutral-600 text-sm mb-4 line-clamp-2">{area.description}</p>
 
                 <div className="mb-4">
                   <div className="text-sm font-medium text-neutral-700 mb-2">
                     Average Rent:{" "}
-                    <span className="text-primary-600 font-bold">
-                      {area.averageRent}
-                    </span>
+                    <span className="text-primary-600 font-bold">{area.averageRent}</span>
                   </div>
 
                   <div className="text-xs text-neutral-500">
                     Popular areas: {area.neighborhoods.slice(0, 3).join(", ")}
-                    {area.neighborhoods.length > 3 &&
-                      ` +${area.neighborhoods.length - 3} more`}
+                    {area.neighborhoods.length > 3 && ` +${area.neighborhoods.length - 3} more`}
                   </div>
                 </div>
 
@@ -247,9 +218,7 @@ const FeaturedAreasSection = () => {
             <div className="text-sm text-neutral-600">Counties Covered</div>
           </div>
           <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
-            <div className="text-3xl font-bold text-secondary-600 mb-2">
-              200+
-            </div>
+            <div className="text-3xl font-bold text-secondary-600 mb-2">200+</div>
             <div className="text-sm text-neutral-600">Cities & Towns</div>
           </div>
           <div className="text-center p-6 bg-white rounded-2xl shadow-sm">

@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search, Heart } from "lucide-react";
+import { Menu, X, Search, Heart, Home } from "lucide-react";
 import { clsx } from "clsx";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const navigation = [
@@ -29,7 +28,9 @@ export default function Header() {
             href="/"
             className="flex items-center space-x-2 text-xl font-bold text-safari-600 transition-opacity hover:opacity-80"
           >
-            <Image src="/logo.svg" alt="Spot A Crib Logo" width={32} height={32} priority />
+            <div className="w-8 h-8 bg-safari-600 rounded-lg flex items-center justify-center">
+              <Home className="w-5 h-5 text-white" />
+            </div>
             <span className="hidden sm:block">Spot A Crib</span>
           </Link>
 

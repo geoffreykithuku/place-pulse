@@ -98,7 +98,7 @@ const HeroSection = () => {
                   <input
                     type="text"
                     placeholder="Bedsitter, 2BR, family home..."
-                    className="w-full pl-10 pr-3 py-2.5 border-2 border-neutral-200/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-300 transition-all duration-200 bg-white/80 backdrop-blur-sm text-sm"
+                    className="w-full pl-3 pr-3 py-2.5 border-2 border-neutral-200/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-300 transition-all duration-200 bg-white/80 backdrop-blur-sm text-sm"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -107,7 +107,7 @@ const HeroSection = () => {
                 <div className="sm:w-48 relative">
                   <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-4 h-4" />
                   <select
-                    className="w-full pl-10 pr-3 py-2.5 border-2 border-neutral-200/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-300 appearance-none bg-white/80 backdrop-blur-sm text-sm transition-all duration-200"
+                    className="w-full pl-3 pr-8 py-2.5 border-2 border-neutral-200/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-300 appearance-none bg-white/80 backdrop-blur-sm text-sm transition-all duration-200"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                   >
@@ -196,7 +196,7 @@ const HeroSection = () => {
                 className="absolute top-0 left-0 w-64 h-64 rounded-3xl overflow-hidden shadow-lg border-4 border-white z-20 transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/hero-house.jpg"
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
                   alt="Modern apartment"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -211,7 +211,7 @@ const HeroSection = () => {
                 className="absolute top-20 right-0 w-56 h-56 rounded-3xl overflow-hidden shadow-lg border-4 border-white z-10 transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/hero-house.jpg"
+                  src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80"
                   alt="Cozy living room"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -226,7 +226,7 @@ const HeroSection = () => {
                 className="absolute top-56 left-16 w-48 h-48 rounded-2xl overflow-hidden shadow-lg border-4 border-white z-15 transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/hero-house.jpg"
+                  src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
                   alt="Beautiful kitchen"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -241,7 +241,7 @@ const HeroSection = () => {
                 className="absolute bottom-12 left-36 w-72 h-72 rounded-3xl overflow-hidden shadow-lg border-4 border-white z-20 transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/hero-house.jpg"
+                  src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80"
                   alt="Spacious bedroom"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -256,7 +256,7 @@ const HeroSection = () => {
                 className="absolute bottom-0 right-4 w-40 h-40 rounded-2xl overflow-hidden shadow-lg border-4 border-white z-10 transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/hero-house.jpg"
+                  src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80"
                   alt="Modern bathroom"
                   className="w-full h-full object-cover"
                   loading="lazy"

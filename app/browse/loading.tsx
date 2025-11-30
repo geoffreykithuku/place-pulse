@@ -1,6 +1,6 @@
 export default function BrowseLoading() {
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
       <div className="mb-8 animate-pulse">
         <div className="h-10 bg-neutral-200 rounded w-64 mb-4"></div>
         <div className="h-6 bg-neutral-200 rounded w-96"></div>

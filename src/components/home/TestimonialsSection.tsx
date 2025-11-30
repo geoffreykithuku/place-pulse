@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
       name: "Sarah Wanjiku",
       role: "Marketing Manager",
       location: "Nairobi",
-      image: "/testimonials/sarah.jpg",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
       rating: 5,
       text: "I found my perfect 2-bedroom apartment in Kilimani within 3 days! The hunter was professional, showed me 4 great options, and I didn't have to deal with any fake listings. Worth every shilling.",
       house: "2BR Apartment, Kilimani",
@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
       name: "David Kimani",
       role: "Software Developer",
       location: "Mombasa",
-      image: "/testimonials/david.jpg",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
       rating: 5,
       text: "As someone who relocated from Nairobi to Mombasa for work, I was worried about finding a good place remotely. The hunter did virtual tours for me and I secured my house before even arriving in Mombasa!",
       house: "1BR Apartment, Nyali",
@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
       name: "Grace Akinyi",
       role: "University Student",
       location: "Kisumu",
-      image: "/testimonials/grace.jpg",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
       rating: 5,
       text: "Best decision ever! I was tired of scrolling through Facebook groups with fake houses. Found a clean bedsitter near my campus with all amenities. The hunter even helped me negotiate the rent!",
       house: "Bedsitter, Kondele",
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
       name: "James Mwangi",
       role: "Hunter - Westlands",
       location: "Nairobi",
-      image: "/testimonials/james.jpg",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
       rating: 5,
       text: "Being a house hunter has changed my life. I earn KSh 18,000 monthly helping people find homes in Westlands. The platform is easy to use and payments are always on time via M-Pesa.",
       house: "Verified Hunter",
@@ -110,9 +110,7 @@ const TestimonialsSection = () => {
               {/* Quote Icon */}
               <div
                 className={`absolute top-6 right-6 w-8 h-8 ${
-                  testimonial.isHunter
-                    ? "text-secondary-300"
-                    : "text-primary-300"
+                  testimonial.isHunter ? "text-secondary-300" : "text-primary-300"
                 }`}
               >
                 <Quote className="w-full h-full" />
@@ -121,10 +119,7 @@ const TestimonialsSection = () => {
               {/* Rating */}
               <div className="flex items-center space-x-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
@@ -143,9 +138,7 @@ const TestimonialsSection = () => {
                   />
                 </div>
                 <div className="flex-1">
-                  <div className="font-semibold text-neutral-900">
-                    {testimonial.name}
-                  </div>
+                  <div className="font-semibold text-neutral-900">{testimonial.name}</div>
                   <div className="text-sm text-neutral-600">
                     {testimonial.role} • {testimonial.location}
                   </div>
@@ -160,9 +153,7 @@ const TestimonialsSection = () => {
                   </span>
                   <span
                     className={`font-medium ${
-                      testimonial.isHunter
-                        ? "text-secondary-600"
-                        : "text-primary-600"
+                      testimonial.isHunter ? "text-secondary-600" : "text-primary-600"
                     }`}
                   >
                     {testimonial.house}
@@ -172,9 +163,7 @@ const TestimonialsSection = () => {
                   <span className="text-neutral-600">
                     {testimonial.isHunter ? "Income:" : "Benefit:"}
                   </span>
-                  <span className="font-medium text-accent-600">
-                    {testimonial.savings}
-                  </span>
+                  <span className="font-medium text-accent-600">{testimonial.savings}</span>
                 </div>
               </div>
 

@@ -15,7 +15,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "Spot A Crib",
   url: "https://spotacrib.co.ke",
-  logo: "https://spotacrib.co.ke/logo.png",
+  logo: "https://spotacrib.co.ke/icon.png",
   description:
     "Find your perfect home in Kenya faster. Connect with verified house hunters who know the best available rentals in your area.",
   address: {

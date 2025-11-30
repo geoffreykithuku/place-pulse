@@ -1,6 +1,6 @@
 export default function PropertyLoading() {
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
       <div className="animate-pulse">
         {/* Breadcrumb skeleton */}
         <div className="h-4 bg-neutral-200 rounded w-48 mb-6"></div>

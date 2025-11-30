@@ -33,9 +33,9 @@ export const mockProperties: Property[] = [
     bathrooms: 2,
     type: "2br",
     images: [
-      "/properties/westlands-1.jpg",
-      "/properties/westlands-2.jpg",
-      "/properties/westlands-3.jpg",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
     ],
     hunterName: "Sarah Wanjiku",
     hunterRating: 4.8,
@@ -44,8 +44,7 @@ export const mockProperties: Property[] = [
     postedDays: 2,
     scoutId: "scout-1",
     amenities: ["WiFi", "Parking", "Security", "Generator"],
-    description:
-      "Beautiful 2-bedroom apartment in the heart of Westlands with modern amenities.",
+    description: "Beautiful 2-bedroom apartment in the heart of Westlands with modern amenities.",
     coordinates: { lat: -1.2674, lng: 36.8108 },
   },
   {
@@ -57,7 +56,10 @@ export const mockProperties: Property[] = [
     bedrooms: 1,
     bathrooms: 1,
     type: "bedsitter",
-    images: ["/properties/eastleigh-1.jpg", "/properties/eastleigh-2.jpg"],
+    images: [
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80",
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
+    ],
     hunterName: "Ahmed Hassan",
     hunterRating: 4.6,
     isVerified: true,
@@ -65,8 +67,7 @@ export const mockProperties: Property[] = [
     postedDays: 1,
     scoutId: "scout-3",
     amenities: ["WiFi", "Security"],
-    description:
-      "Affordable bedsitter perfect for students and young professionals.",
+    description: "Affordable bedsitter perfect for students and young professionals.",
     coordinates: { lat: -1.2811, lng: 36.8442 },
   },
   {
@@ -79,10 +80,10 @@ export const mockProperties: Property[] = [
     bathrooms: 3,
     type: "3br",
     images: [
-      "/properties/karen-1.jpg",
-      "/properties/karen-2.jpg",
-      "/properties/karen-3.jpg",
-      "/properties/karen-4.jpg",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
     ],
     hunterName: "Grace Muthoni",
     hunterRating: 4.9,
@@ -91,8 +92,7 @@ export const mockProperties: Property[] = [
     postedDays: 3,
     scoutId: "scout-2",
     amenities: ["WiFi", "Parking", "Garden", "Security", "Gym"],
-    description:
-      "Luxurious family home in Karen with beautiful garden and modern amenities.",
+    description: "Luxurious family home in Karen with beautiful garden and modern amenities.",
     coordinates: { lat: -1.3196, lng: 36.6965 },
   },
   {
@@ -104,7 +104,10 @@ export const mockProperties: Property[] = [
     bedrooms: 1,
     bathrooms: 1,
     type: "1br",
-    images: ["/properties/kilimani-1.jpg", "/properties/kilimani-2.jpg"],
+    images: [
+      "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=800&q=80",
+      "https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=800&q=80",
+    ],
     hunterName: "David Kiprotich",
     hunterRating: 4.7,
     isVerified: true,
@@ -125,9 +128,9 @@ export const mockProperties: Property[] = [
     bathrooms: 4,
     type: "4br+",
     images: [
-      "/properties/runda-1.jpg",
-      "/properties/runda-2.jpg",
-      "/properties/runda-3.jpg",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
     ],
     hunterName: "Mary Njeri",
     hunterRating: 5.0,
@@ -136,8 +139,7 @@ export const mockProperties: Property[] = [
     postedDays: 1,
     scoutId: "scout-2",
     amenities: ["WiFi", "Parking", "Garden", "Security", "Pool", "Gym"],
-    description:
-      "Elegant 4-bedroom house in exclusive Runda estate with premium amenities.",
+    description: "Elegant 4-bedroom house in exclusive Runda estate with premium amenities.",
     coordinates: { lat: -1.2167, lng: 36.7833 },
   },
   {
@@ -149,7 +151,10 @@ export const mockProperties: Property[] = [
     bedrooms: 1,
     bathrooms: 1,
     type: "bedsitter",
-    images: ["/properties/southb-1.jpg", "/properties/southb-2.jpg"],
+    images: [
+      "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800&q=80",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80",
+    ],
     hunterName: "John Mwangi",
     hunterRating: 4.5,
     isVerified: true,
@@ -157,8 +162,7 @@ export const mockProperties: Property[] = [
     postedDays: 2,
     scoutId: "scout-3",
     amenities: ["WiFi", "Security", "Near University"],
-    description:
-      "Perfect bedsitter for students, close to universities and transport.",
+    description: "Perfect bedsitter for students, close to universities and transport.",
     coordinates: { lat: -1.3073, lng: 36.8344 },
   },
 ];
@@ -271,11 +275,7 @@ export const mockScouts: Scout[] = [
     totalProperties: 67,
     successfulMatches: 43,
     yearsExperience: 5,
-    specializations: [
-      "Luxury Homes",
-      "Executive Apartments",
-      "Furnished Properties",
-    ],
+    specializations: ["Luxury Homes", "Executive Apartments", "Furnished Properties"],
     areas: ["Kileleshwa", "Spring Valley", "Gigiri"],
     isVerified: true,
     joinedDate: "2020-01-10",
