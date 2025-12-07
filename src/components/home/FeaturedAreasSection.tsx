@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Home } from "lucide-react";
 import Button from "../ui/Button";

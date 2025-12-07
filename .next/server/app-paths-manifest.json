@@ -1,8 +1,9 @@
 {
-  "/pricing/page": "app/pricing/page.js",
+  "/property/[id]/page": "app/property/[id]/page.js",
+  "/for-hunters/page": "app/for-hunters/page.js",
+  "/hunter-signup/page": "app/hunter-signup/page.js",
   "/scouts/page": "app/scouts/page.js",
-  "/how-it-works/page": "app/how-it-works/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/scouts/[slug]/page": "app/scouts/[slug]/page.js",
-  "/page": "app/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/pricing/page": "app/pricing/page.js"
 }

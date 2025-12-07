@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -71,17 +72,13 @@ const ShareModal = ({ isOpen, onClose, property }: ShareModalProps) => {
   };
 
   const shareToWhatsApp = () => {
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-      `${shareText} ${propertyUrl}`
-    )}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${propertyUrl}`)}`;
     window.open(whatsappUrl, "_blank");
   };
 
   const shareViaEmail = () => {
     const subject = encodeURIComponent(`Property: ${property.title}`);
-    const body = encodeURIComponent(
-      `${shareText}\n\nView property: ${propertyUrl}`
-    );
+    const body = encodeURIComponent(`${shareText}\n\nView property: ${propertyUrl}`);
     const emailUrl = `mailto:?subject=${subject}&body=${body}`;
     window.location.href = emailUrl;
   };
@@ -143,9 +140,7 @@ const ShareModal = ({ isOpen, onClose, property }: ShareModalProps) => {
             <div className="flex items-center justify-between p-6 border-b border-neutral-200">
               <div className="flex items-center space-x-2">
                 <Share2 className="w-5 h-5 text-safari-600" />
-                <h2 className="text-lg font-semibold text-neutral-900">
-                  Share Property
-                </h2>
+                <h2 className="text-lg font-semibold text-neutral-900">Share Property</h2>
               </div>
               <button
                 onClick={onClose}
@@ -165,12 +160,8 @@ const ShareModal = ({ isOpen, onClose, property }: ShareModalProps) => {
                     className="w-16 h-16 object-cover rounded-lg"
                   />
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-neutral-900 truncate">
-                      {property.title}
-                    </h3>
-                    <p className="text-sm text-neutral-600 truncate">
-                      {property.location}
-                    </p>
+                    <h3 className="font-semibold text-neutral-900 truncate">{property.title}</h3>
+                    <p className="text-sm text-neutral-600 truncate">{property.location}</p>
                     <p className="text-sm font-medium text-safari-600">
                       KSh {property.price.toLocaleString()}/month
                     </p>
@@ -236,8 +227,8 @@ const ShareModal = ({ isOpen, onClose, property }: ShareModalProps) => {
               {/* Tips */}
               <div className="mt-6 p-3 bg-blue-50 rounded-lg">
                 <p className="text-sm text-blue-800">
-                  <strong>💡 Tip:</strong> Sharing properties helps us reach
-                  more people looking for homes in Kenya!
+                  <strong>💡 Tip:</strong> Sharing properties helps us reach more people looking for
+                  homes in Kenya!
                 </p>
               </div>
             </div>

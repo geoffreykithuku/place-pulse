@@ -1,15 +1,16 @@
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Star, Shield, TrendingUp, Users } from 'lucide-react';
-import Button from './Button';
+"use client";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Star, Shield, TrendingUp, Users } from "lucide-react";
+import Button from "./Button";
 
 interface HunterCTAProps {
-  variant?: 'default' | 'compact' | 'banner';
+  variant?: "default" | "compact" | "banner";
   className?: string;
 }
 
-const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
-  if (variant === 'compact') {
+const HunterCTA = ({ variant = "default", className = "" }: HunterCTAProps) => {
+  if (variant === "compact") {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -32,7 +33,7 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
     );
   }
 
-  if (variant === 'banner') {
+  if (variant === "banner") {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -42,22 +43,22 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
-        
+
         <div className="relative text-center">
           <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4 mr-2" />
             <span>Verified Hunter Program</span>
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Turn Your Local Knowledge Into Income
           </h2>
-          
+
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Help your neighbors find perfect homes while earning substantial commissions. 
-            Join Kenya's most trusted house hunting network.
+            Help your neighbors find perfect homes while earning substantial commissions. Join
+            Kenya's most trusted house hunting network.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link href="/hunter-signup">
               <Button variant="glass" size="xl" modern className="px-8">
@@ -65,12 +66,16 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
               </Button>
             </Link>
             <Link href="/for-hunters">
-              <Button variant="outline" size="xl" className="px-8 border-white/30 text-white hover:bg-white/10">
+              <Button
+                variant="outline"
+                size="xl"
+                className="px-8 border-white/30 text-white hover:bg-white/10"
+              >
                 Learn More
               </Button>
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold">KSh 15K</div>
@@ -108,14 +113,14 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
           <span className="font-swahili mr-2">Pata pesa</span>
           <span className="text-neutral-600">• Earn money</span>
         </div>
-        
+
         <h2 className="text-3xl font-bold text-neutral-900 mb-4">
           Become a <span className="gradient-text-safari">Verified</span> House Hunter
         </h2>
-        
+
         <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-8">
-          Use your local knowledge to help people find homes and earn KSh 2,000 - 15,000 per successful match. 
-          Join our trusted network of house scouts across Kenya.
+          Use your local knowledge to help people find homes and earn KSh 2,000 - 15,000 per
+          successful match. Join our trusted network of house scouts across Kenya.
         </p>
       </div>
 
@@ -125,17 +130,21 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
             <Star className="w-6 h-6 text-white" />
           </div>
           <h3 className="font-semibold text-neutral-900 mb-2">High Earnings</h3>
-          <p className="text-sm text-neutral-600">Earn up to KSh 15,000 per successful house match</p>
+          <p className="text-sm text-neutral-600">
+            Earn up to KSh 15,000 per successful house match
+          </p>
         </div>
-        
+
         <div className="text-center p-6 bg-white rounded-2xl shadow-soft">
           <div className="w-12 h-12 bg-gradient-to-r from-accent-500 to-safari-500 rounded-full flex items-center justify-center mx-auto mb-4">
             <Shield className="w-6 h-6 text-white" />
           </div>
           <h3 className="font-semibold text-neutral-900 mb-2">Verified Status</h3>
-          <p className="text-sm text-neutral-600">Get verified badge and priority access to leads</p>
+          <p className="text-sm text-neutral-600">
+            Get verified badge and priority access to leads
+          </p>
         </div>
-        
+
         <div className="text-center p-6 bg-white rounded-2xl shadow-soft">
           <div className="w-12 h-12 bg-gradient-to-r from-maasai-500 to-kenyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
             <Users className="w-6 h-6 text-white" />
@@ -160,11 +169,10 @@ const HunterCTA = ({ variant = 'default', className = '' }: HunterCTAProps) => {
 
       <div className="mt-6 text-center text-sm text-neutral-500">
         <p>
-          <span className="font-swahili italic">"Haba na haba, hujaza kibaba"</span> - Little by little fills the measure
+          <span className="font-swahili italic">"Haba na haba, hujaza kibaba"</span> - Little by
+          little fills the measure
         </p>
-        <p className="mt-1">
-          Applications reviewed within 2-3 business days • No upfront fees
-        </p>
+        <p className="mt-1">Applications reviewed within 2-3 business days • No upfront fees</p>
       </div>
     </motion.div>
   );

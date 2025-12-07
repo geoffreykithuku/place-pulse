@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Users, Home, Clock, Star } from "lucide-react";
 
@@ -67,8 +66,7 @@ const TrustSection = () => {
             Trusted by <span className="text-primary-600">15,000+</span> Kenyans
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who found their perfect home
-            through our platform
+            Join thousands of satisfied customers who found their perfect home through our platform
           </p>
         </motion.div>
 
@@ -89,12 +87,8 @@ const TrustSection = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4">
                 <stat.icon className="w-8 h-8 text-primary-600" />
               </div>
-              <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-lg font-semibold text-neutral-800 mb-2">
-                {stat.label}
-              </div>
+              <div className="text-3xl font-bold text-neutral-900 mb-2">{stat.number}</div>
+              <div className="text-lg font-semibold text-neutral-800 mb-2">{stat.label}</div>
               <div className="text-sm text-neutral-600">{stat.description}</div>
             </motion.div>
           ))}
@@ -111,33 +105,24 @@ const TrustSection = () => {
           <div className="flex items-center space-x-2">
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                />
+                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-neutral-700 font-medium">
-              98% Customer Satisfaction
-            </span>
+            <span className="text-neutral-700 font-medium">98% Customer Satisfaction</span>
           </div>
 
           <div className="flex items-center space-x-2">
             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xs">✓</span>
             </div>
-            <span className="text-neutral-700 font-medium">
-              All Hunters Verified
-            </span>
+            <span className="text-neutral-700 font-medium">All Hunters Verified</span>
           </div>
 
           <div className="flex items-center space-x-2">
             <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xs">🛡</span>
             </div>
-            <span className="text-neutral-700 font-medium">
-              Secure Payments
-            </span>
+            <span className="text-neutral-700 font-medium">Secure Payments</span>
           </div>
         </motion.div>
       </div>

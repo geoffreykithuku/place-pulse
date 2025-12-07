@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Search, Calendar, Eye, Home, Users, DollarSign } from "lucide-react";
 
@@ -15,8 +14,7 @@ const HowItWorksSection = () => {
       icon: Calendar,
       title: "Book a Viewing",
       description: "Pay a small fee to secure your house tour",
-      details:
-        "Choose your preferred viewing time and get hunter contact details",
+      details: "Choose your preferred viewing time and get hunter contact details",
     },
     {
       icon: Eye,
@@ -28,8 +26,7 @@ const HowItWorksSection = () => {
       icon: Home,
       title: "Move In",
       description: "Get direct contact with landlords after viewing",
-      details:
-        "Your viewing fee goes toward first month's rent if you take the house",
+      details: "Your viewing fee goes toward first month's rent if you take the house",
     },
   ];
 
@@ -99,17 +96,11 @@ const HowItWorksSection = () => {
               isHunter ? "bg-safari-100" : "bg-safari-100"
             } rounded-full flex items-center justify-center mx-auto mb-3`}
           >
-            <step.icon
-              className={`w-8 h-8 ${
-                isHunter ? "text-safari-600" : "text-safari-600"
-              }`}
-            />
+            <step.icon className={`w-8 h-8 ${isHunter ? "text-safari-600" : "text-safari-600"}`} />
           </div>
           <span
             className={`text-sm font-bold ${
-              isHunter
-                ? "text-safari-600 bg-safari-100"
-                : "text-safari-600 bg-safari-100"
+              isHunter ? "text-safari-600 bg-safari-100" : "text-safari-600 bg-safari-100"
             } px-3 py-1 rounded-full`}
           >
             Step {index + 1}
@@ -118,15 +109,9 @@ const HowItWorksSection = () => {
 
         {/* Content */}
         <div className="text-center flex-1 flex flex-col">
-          <h3 className="text-xl font-bold text-neutral-900 mb-3">
-            {step.title}
-          </h3>
-          <p className="text-neutral-700 mb-4 font-medium leading-relaxed">
-            {step.description}
-          </p>
-          <p className="text-sm text-neutral-600 leading-relaxed mt-auto">
-            {step.details}
-          </p>
+          <h3 className="text-xl font-bold text-neutral-900 mb-3">{step.title}</h3>
+          <p className="text-neutral-700 mb-4 font-medium leading-relaxed">{step.description}</p>
+          <p className="text-sm text-neutral-600 leading-relaxed mt-auto">{step.details}</p>
         </div>
       </div>
 
@@ -149,12 +134,10 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-4">
-            Simple, Safe, <span className="text-safari-600">Effective</span>{" "}
-            House Hunting
+            Simple, Safe, <span className="text-safari-600">Effective</span> House Hunting
           </h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            We've simplified the house hunting process for both renters and
-            property scouts
+            We've simplified the house hunting process for both renters and property scouts
           </p>
         </motion.div>
 
@@ -183,12 +166,7 @@ const HowItWorksSection = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {renterSteps.map((step, index) => (
-              <StepCard
-                key={index}
-                step={step}
-                index={index}
-                isHunter={false}
-              />
+              <StepCard key={index} step={step} index={index} isHunter={false} />
             ))}
           </motion.div>
         </div>
